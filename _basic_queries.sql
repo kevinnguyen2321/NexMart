@@ -1,0 +1,5 @@
+SELECT * FROM "Products"
+SELECT * FROM "Categories"
+SELECT * FROM "Orders"
+SELECT * FROM "OrderProducts"
+SELECT * FROM "UserProfiles"
