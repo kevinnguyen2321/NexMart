@@ -21,7 +21,7 @@ public class OrderController : ControllerBase
 
     
     [HttpGet]
-    // [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public IActionResult Get ()
     {
         return Ok(_dbContext.Orders

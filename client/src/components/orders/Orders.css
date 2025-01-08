@@ -1,0 +1,16 @@
+.orders-wrapper {
+  border: solid black;
+  margin: 150px auto 0 auto;
+  width: 60%;
+}
+
+.order-card {
+  border: solid pink;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.order-card button {
+    font-size: 1rem;
+}
