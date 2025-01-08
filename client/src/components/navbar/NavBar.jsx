@@ -10,7 +10,7 @@ import {
   NavbarBrand,
   NavbarToggler,
 } from 'reactstrap';
-import { logout } from '../managers/authManager';
+import { logout } from '../../managers/authManager';
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
@@ -21,13 +21,21 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
     <div>
       <Navbar color="light" light fixed="true" expand="lg">
         <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
-          🧹🧼House Rules
+          NexMart
         </NavbarBrand>
         {loggedInUser ? (
           <>
             <NavbarToggler onClick={toggleNavbar} />
             <Collapse isOpen={open} navbar>
-              <Nav navbar></Nav>
+              <Nav navbar>
+                {loggedInUser?.roles.includes('Admin') && (
+                  <NavItem>
+                    <NavLink tag={RRNavLink} to="/orders">
+                      Orders
+                    </NavLink>
+                  </NavItem>
+                )}
+              </Nav>
             </Collapse>
             <Button
               color="primary"
