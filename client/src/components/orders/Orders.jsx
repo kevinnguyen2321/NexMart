@@ -21,8 +21,10 @@ export const Orders = () => {
         {orders.map((o) => {
           return (
             <div className="order-card" key={o.id}>
-              Order Id: {o.id}
-              <p>Order Date:{formatDate(o.orderDate)}</p>
+              <div>Order Id: {o.id}</div>
+              <div className="order-date-wrapper">
+                Order Date:{formatDate(o.orderDate)}
+              </div>
               <button>View</button>
               <button>Cancel Order</button>
             </div>
