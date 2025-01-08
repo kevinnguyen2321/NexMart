@@ -25,6 +25,7 @@ export const Orders = () => {
               <div className="order-date-wrapper">
                 Order Date:{formatDate(o.orderDate)}
               </div>
+              <div className='order-total-wrapper'>Total:${o.orderTotal}</div>
               <button>View</button>
               <button>Cancel Order</button>
             </div>

@@ -68,6 +68,14 @@ public class OrderController : ControllerBase
 
     }
 
+    [HttpGet("{id}")]
+    [Authorize(Roles = "Admin")]
+
+    public IActionResult GetById(int id)
+    {
+        
+    }
+
  
 
 
