@@ -1,0 +1,15 @@
+.featured-products {
+  border: solid black;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 0 auto;
+}
+
+.product-card {
+  border: solid black;
+  width: 20%;
+}
+
+.product-card img {
+  width: 65%;
+}

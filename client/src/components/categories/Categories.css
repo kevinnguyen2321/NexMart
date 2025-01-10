@@ -1,0 +1,13 @@
+.category-wrapper {
+  border: solid black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.display-categories-wrapper ul {
+  border: solid black;
+  display: flex;
+  width: 100%;
+  list-style: none;
+  gap: 15px;
+}
