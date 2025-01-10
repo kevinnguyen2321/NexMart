@@ -73,6 +73,56 @@ public class OrderController : ControllerBase
 
     public IActionResult GetById(int id)
     {
+        Order foundOrder = _dbContext.Orders
+        .Include(o => o.UserProfile)
+        .Include(o => o.OrderProducts)
+        .ThenInclude(op => op.Product)
+        .FirstOrDefault(o => o.Id == id);
+
+        if (foundOrder == null)
+        {
+            return NotFound();
+        }
+
+        OrderDTO foundOrderDTO = new OrderDTO
+        {
+            Id = foundOrder.Id,
+            OrderDate = foundOrder.OrderDate,
+            UserProfileId = foundOrder.UserProfileId,
+            UserProfile = new UserProfileDTO
+            {
+                Id = foundOrder.UserProfile.Id,
+                FirstName = foundOrder.UserProfile.FirstName,
+                LastName = foundOrder.UserProfile.LastName,
+                Address = foundOrder.UserProfile.Address,
+                IdentityUserId = foundOrder.UserProfile.IdentityUserId
+            },
+            OrderProducts = foundOrder.OrderProducts != null ?
+            foundOrder.OrderProducts
+            .Select(op => new OrderProductDTO
+            {
+                Id = op.Id,
+                OrderId = op.OrderId,
+                ProductId = op.ProductId,
+                Product = new ProductDTO
+                {
+                    Id = op.Product.Id,
+                    Name = op.Product.Name,
+                    Price = op.Product.Price,
+                    CategoryId = op.Product.CategoryId,
+                    StockQuantity = op.Product.StockQuantity,
+                    ImageUrl = op.Product.ImageUrl != null ?
+                    op.Product.ImageUrl : null
+                },
+                Quantity = op.Quantity
+
+            }
+            
+             ).ToList(): null
+        };
+
+
+        return Ok(foundOrderDTO);
         
     }
 
