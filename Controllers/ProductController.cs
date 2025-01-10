@@ -26,9 +26,29 @@ public class ProductController : ControllerBase
         .Where(p => !categoryId.HasValue || p.CategoryId == categoryId)
         .ToList();
 
-    return Ok(products);
-       
+        return Ok(products);
+    }
 
+    [HttpPost]
+    [Authorize(Roles ="Admin")]
+    public IActionResult AddNewProduct(Product product)
+    {
+        _dbContext.Products.Add(product);
+        _dbContext.SaveChanges();
+
+        ProductDTO newProduct = new ProductDTO
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Price = product.Price,
+            CategoryId = product.CategoryId,
+            Description = product.Description,
+            StockQuantity = product.StockQuantity,
+            ImageUrl = product.ImageUrl != null ? product.ImageUrl : null
+
+        };
+
+        return Created($"/api/product/{product.Id}", newProduct);
     }
 
 

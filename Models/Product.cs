@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace NexMart.Models;
 
@@ -11,6 +12,7 @@ public class Product
     public decimal Price { get; set; }
     [Required]
     public int CategoryId { get; set; }
+    [ValidateNever]
     public Category Category { get; set; }
     [Required]
     public string Description { get; set; }
