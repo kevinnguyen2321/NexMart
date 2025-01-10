@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getAllProducts } from '../../managers/productManager';
 import './Products.css';
 
-export const Products = () => {
+export const Products = ({ selectedCategoryId }) => {
   const [products, setProducts] = useState([]);
   const [featuredProducts, setFeaturedProducts] = useState([]);
 
@@ -12,6 +12,14 @@ export const Products = () => {
       setFeaturedProducts(selectRandomProducts(data, 8));
     });
   }, []);
+
+  useEffect(() => {
+    if (selectedCategoryId) {
+      getAllProducts(selectedCategoryId).then((data) =>
+        setFeaturedProducts(data)
+      );
+    }
+  }, [selectedCategoryId]);
 
   // Function to select random products
   const selectRandomProducts = (products, count) => {

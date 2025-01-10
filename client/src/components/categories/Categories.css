@@ -2,12 +2,50 @@
   border: solid black;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+.category-dropdown {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.category-dropdown-menu {
+  display: block; /* Shown when isDropdownOpen is true */
+  position: absolute;
+  top: 100%;
+  left: 15px;
+  background-color: white;
+  border: solid black;
+  z-index: 10;
+  padding: 10px;
+}
+
+.category-dropdown-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.category-dropdown-menu li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.category-dropdown-menu li:hover {
+  background-color: #f0f0f0;
 }
 
 .display-categories-wrapper ul {
-  border: solid black;
+  /* border: solid black; */
   display: flex;
   width: 100%;
   list-style: none;
-  gap: 15px;
+  gap: 205px;
+  margin-top: 5px;
+}
+
+.display-categories-wrapper li {
+  cursor: pointer;
 }
