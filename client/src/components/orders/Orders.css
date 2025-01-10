@@ -7,14 +7,47 @@
 .order-card {
   border: solid pink;
   font-size: 2.2rem;
-  display: flex;
-  justify-content: space-around;
 }
 
 .order-date-wrapper {
-  width: 50%;
+  width: 35%;
+  /* border: solid black; */
+}
+
+.order-total-wrapper {
+  width: 15%;
+}
+
+.order-date-wrapper,
+.order-total-wrapper {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-date-text-wrapper {
+  /* border: solid black; */
+}
+
+.order-buttons-wrapper {
+  /* border: solid black; */
+  /* display: flex;
+  justify-content: center; */
+  margin-left: 15px;
 }
 
 .order-card button {
   font-size: 1rem;
+  margin-right: 20px;
+}
+
+.order-details {
+  border-top: solid black;
+}
+
+.order-details-product-list {
+  /* border: solid black; */
+  list-style: none;
+  font-size: 1.3rem;
 }

@@ -13,4 +13,6 @@ public class UserProfile
 
     public IdentityUser IdentityUser { get; set; }
 
+    public string FullName => $"{FirstName} {LastName}";
+
 }
