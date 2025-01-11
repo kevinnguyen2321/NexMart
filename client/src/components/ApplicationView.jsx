@@ -4,6 +4,7 @@ import Login from './auth/Login';
 import Register from './auth/Register';
 import { Home } from './home/Home';
 import { Orders } from './orders/Orders';
+import { ProductsListAdmin } from './products/ProductsListAdmin';
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -18,6 +19,15 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
         <Route
           path="register"
           element={<Register setLoggedInUser={setLoggedInUser} />}
+        />
+
+        <Route
+          path="products-list"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser} roles={['Admin']}>
+              <ProductsListAdmin loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
 
         <Route

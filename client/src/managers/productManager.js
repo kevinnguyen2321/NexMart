@@ -5,3 +5,13 @@ export const getAllProducts = (categoryId) => {
 
   return fetch(url).then((res) => res.json());
 };
+
+export const addNewProduct = (product) => {
+  return fetch(_apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(product),
+  }).then((res) => res.json());
+};
