@@ -1,6 +1,36 @@
 .products-list-wrapper {
-  border: solid black;
+  /* border: solid black; */
   margin: 100px auto 0 auto;
   width: 100%;
   text-align: center;
+}
+
+.products-wrapper-admin {
+  width: 100%;
+  margin: 25px auto 0 auto;
+}
+
+.product-list-card {
+  border-bottom: 1px solid black;
+  display: flex;
+  gap: 15px;
+  justify-content: space-around;
+}
+
+.product-list-card-info {
+  /* border: solid yellow; */
+  display: flex;
+  gap: 15px;
+  width: 60%;
+}
+
+.product-list-card-info span {
+  font-weight: bold;
+}
+
+.product-list-btn-wrapper {
+  /* border: solid black; */
+  display: flex;
+  justify-content: space-evenly;
+  width: 25%;
 }
