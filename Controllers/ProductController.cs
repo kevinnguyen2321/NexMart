@@ -51,6 +51,8 @@ public class ProductController : ControllerBase
         return Created($"/api/product/{product.Id}", newProduct);
     }
 
+    
+
 
 
 
