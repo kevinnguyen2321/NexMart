@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { getAllProducts } from '../../managers/productManager';
 import './ProductsListAdmin.css';
 import { NewProductForm } from './NewProductForm';
+import { ProductDetails } from './ProductDetails';
 
 export const ProductsListAdmin = () => {
   const [products, setProducts] = useState([]);
   const [isNewProductFormOpen, setIsNewProductFormOpen] = useState(false);
+  const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState(null);
 
   const handleAddBtnClick = () => {
     setIsNewProductFormOpen(true);
@@ -13,6 +16,16 @@ export const ProductsListAdmin = () => {
 
   const handleCloseModal = () => {
     setIsNewProductFormOpen(false);
+  };
+
+  const handleProductDetailsToggle = (productId) => {
+    setIsProductDetailsOpen((prev) => !prev);
+    setSelectedProductId(productId);
+  };
+
+  const handleCloseProductDetailModal = () => {
+    setIsProductDetailsOpen(false);
+    setSelectedProductId(null);
   };
 
   useEffect(() => {
@@ -45,7 +58,9 @@ export const ProductsListAdmin = () => {
                   </p>
                 </div>
                 <div className="product-list-btn-wrapper">
-                  <button>View</button>
+                  <button onClick={() => handleProductDetailsToggle(p.id)}>
+                    View
+                  </button>
                   <button>Edit</button>
                   <button>Delete</button>
                 </div>
@@ -59,6 +74,15 @@ export const ProductsListAdmin = () => {
           <NewProductForm
             isNewProductFormOpen={isNewProductFormOpen}
             onClose={handleCloseModal}
+          />
+        )}
+      </div>
+      <div>
+        {isProductDetailsOpen && (
+          <ProductDetails
+            isProductDetailsOpen={isProductDetailsOpen}
+            selectedProductId={selectedProductId}
+            onClose={handleCloseProductDetailModal}
           />
         )}
       </div>

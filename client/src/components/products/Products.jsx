@@ -28,7 +28,7 @@ export const Products = ({ selectedCategoryId }) => {
   };
   // Giving each featured product dummy image (placeholder)//
   featuredProducts.forEach((fp) => {
-    fp.imageUrl = 'https://dummyimage.com/300x200/000/fff&text=Hello';
+    fp.imageUrl = `https://dummyimage.com/300x200/000/fff&text=${fp.name}`;
   });
 
   return (

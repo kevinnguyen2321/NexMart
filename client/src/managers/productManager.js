@@ -6,6 +6,10 @@ export const getAllProducts = (categoryId) => {
   return fetch(url).then((res) => res.json());
 };
 
+export const getProductById = (productId) => {
+  return fetch(`${_apiUrl}/${productId}`).then((res) => res.json());
+};
+
 export const addNewProduct = (product) => {
   return fetch(_apiUrl, {
     method: 'POST',
