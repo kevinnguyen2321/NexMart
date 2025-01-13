@@ -17,9 +17,11 @@ export const ProductDetails = ({
     <div className={`modal ${isProductDetailsOpen ? 'open' : ''}`}>
       <div className="modal-content">
         <div>
-          <h3>Product Details</h3>
-          <p>Name: {product.name}</p>
-          <p>Category: {product?.category?.name}</p>
+          <h4>{product.name}</h4>
+          <p>${product.price}</p>
+          <p className="product-details-category">
+            <span>Category:</span> {product?.category?.name}
+          </p>
           <img
             src={
               product.imageUrl
@@ -27,12 +29,15 @@ export const ProductDetails = ({
                 : `https://dummyimage.com/300x200/000/fff&text=${product.name}`
             }
           />
+          <p className="product-description">
+            <span>Description: </span>
+            {product.description}
+          </p>
         </div>
         <div className="modal-actions">
           <button type="button" onClick={onClose}>
             Close
           </button>
-          <button type="submit">Submit</button>
         </div>
       </div>
     </div>
