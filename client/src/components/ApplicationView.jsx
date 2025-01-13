@@ -5,6 +5,7 @@ import Register from './auth/Register';
 import { Home } from './home/Home';
 import { Orders } from './orders/Orders';
 import { ProductsListAdmin } from './products/ProductsListAdmin';
+import { ProductDetails } from './products/ProductDetails';
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (

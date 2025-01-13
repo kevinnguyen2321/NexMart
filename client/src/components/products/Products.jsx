@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { getAllProducts } from '../../managers/productManager';
 import './Products.css';
+import { ProductDetails } from './ProductDetails';
 
 export const Products = ({ selectedCategoryId }) => {
   const [products, setProducts] = useState([]);
   const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [selectedProductId, setSelectedProductId] = useState(null);
+  const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false);
 
   useEffect(() => {
     getAllProducts().then((data) => {
@@ -28,8 +31,18 @@ export const Products = ({ selectedCategoryId }) => {
   };
   // Giving each featured product dummy image (placeholder)//
   featuredProducts.forEach((fp) => {
-    fp.imageUrl = 'https://dummyimage.com/300x200/000/fff&text=Hello';
+    fp.imageUrl = `https://dummyimage.com/300x200/000/fff&text=${fp.name}`;
   });
+
+  const handleViewBtnClick = (productId) => {
+    setIsProductDetailsOpen((prev) => !prev);
+    setSelectedProductId(productId);
+  };
+
+  const handleCloseProductDetailModal = () => {
+    setIsProductDetailsOpen(false);
+    setSelectedProductId(null);
+  };
 
   return (
     <div className="products-wrapper">
@@ -42,12 +55,23 @@ export const Products = ({ selectedCategoryId }) => {
               <img src={product.imageUrl} alt={product.name} />
               <p>${product.price.toFixed(2)}</p>
               <div className="feature-product-button-wrapper">
-                <button>View</button>
+                <button onClick={() => handleViewBtnClick(product.id)}>
+                  View
+                </button>
                 <button>Add to cart</button>
               </div>
             </div>
           ))}
         </div>
+      </div>
+      <div>
+        {isProductDetailsOpen && (
+          <ProductDetails
+            isProductDetailsOpen={isProductDetailsOpen}
+            selectedProductId={selectedProductId}
+            onClose={handleCloseProductDetailModal}
+          />
+        )}
       </div>
     </div>
   );

@@ -31,3 +31,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.product-details-category span,
+.product-description span {
+  font-weight: bold;
+}

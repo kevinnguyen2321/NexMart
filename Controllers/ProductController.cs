@@ -29,6 +29,38 @@ public class ProductController : ControllerBase
         return Ok(products);
     }
 
+    [HttpGet("{id}")]
+    public IActionResult GetById(int id)
+    {
+        Product foundProduct = _dbContext.Products
+         .Include(p => p.Category)
+         .FirstOrDefault(p => p.Id == id);
+
+         if (foundProduct == null)
+         {
+            return NotFound();
+         }
+
+         ProductDTO foundProductDTO = new ProductDTO
+         {
+            Id = foundProduct.Id,
+            Name = foundProduct.Name,
+            Price = foundProduct.Price,
+            CategoryId = foundProduct.CategoryId,
+            Category = new CategoryDTO
+            {
+                Id = foundProduct.Category.Id,
+                Name = foundProduct.Category.Name
+            },
+            Description = foundProduct.Description,
+            StockQuantity = foundProduct.StockQuantity,
+            ImageUrl = foundProduct.ImageUrl != null ? 
+            foundProduct.ImageUrl : null
+        };
+
+        return Ok(foundProductDTO);
+    }
+
     [HttpPost]
     [Authorize(Roles ="Admin")]
     public IActionResult AddNewProduct(Product product)
