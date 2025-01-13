@@ -108,9 +108,28 @@ public class ProductController : ControllerBase
 
         _dbContext.SaveChanges();
         return NoContent();
-
-
     }
+
+    [HttpDelete("{id}")]
+    [Authorize(Roles ="Admin")]
+    public IActionResult DeleteProduct(int id)
+    {
+        Product productToDelete = _dbContext.Products
+        .FirstOrDefault(p => p.Id == id);
+
+          if (productToDelete == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.Remove(productToDelete);
+        _dbContext.SaveChanges();
+
+        return NoContent();
+
+        
+    }
+    
 
     
 
