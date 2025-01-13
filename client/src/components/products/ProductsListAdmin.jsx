@@ -8,6 +8,7 @@ export const ProductsListAdmin = () => {
   const [products, setProducts] = useState([]);
   const [isNewProductFormOpen, setIsNewProductFormOpen] = useState(false);
   const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false);
+  const [isEditProductModalOpen, setIsEditProductModalOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
 
   const handleAddBtnClick = () => {
@@ -26,6 +27,11 @@ export const ProductsListAdmin = () => {
   const handleCloseProductDetailModal = () => {
     setIsProductDetailsOpen(false);
     setSelectedProductId(null);
+  };
+
+  const handleEditProductToggle = (productId) => {
+    setIsEditProductModalOpen((prev) => !prev);
+    setSelectedProductId(productId);
   };
 
   useEffect(() => {
@@ -61,7 +67,9 @@ export const ProductsListAdmin = () => {
                   <button onClick={() => handleProductDetailsToggle(p.id)}>
                     View
                   </button>
-                  <button>Edit</button>
+                  <button onClick={() => handleEditProductToggle(p.id)}>
+                    Edit
+                  </button>
                   <button>Delete</button>
                 </div>
               </div>
