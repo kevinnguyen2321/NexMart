@@ -3,6 +3,7 @@ import { getAllProducts } from '../../managers/productManager';
 import './ProductsListAdmin.css';
 import { NewProductForm } from './NewProductForm';
 import { ProductDetails } from './ProductDetails';
+import { EditProductForm } from './EditProductForm';
 
 export const ProductsListAdmin = () => {
   const [products, setProducts] = useState([]);
@@ -10,6 +11,10 @@ export const ProductsListAdmin = () => {
   const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false);
   const [isEditProductModalOpen, setIsEditProductModalOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
+
+  const getAllProductsAndSetProducts = () => {
+    getAllProducts().then((data) => setProducts(data));
+  };
 
   const handleAddBtnClick = () => {
     setIsNewProductFormOpen(true);
@@ -34,8 +39,13 @@ export const ProductsListAdmin = () => {
     setSelectedProductId(productId);
   };
 
+  const handleCloseEditModal = () => {
+    setIsEditProductModalOpen(false);
+    setSelectedProductId(null);
+  };
+
   useEffect(() => {
-    getAllProducts().then((data) => setProducts(data));
+    getAllProductsAndSetProducts();
   }, []);
 
   return (
@@ -91,6 +101,16 @@ export const ProductsListAdmin = () => {
             isProductDetailsOpen={isProductDetailsOpen}
             selectedProductId={selectedProductId}
             onClose={handleCloseProductDetailModal}
+          />
+        )}
+      </div>
+      <div>
+        {isEditProductModalOpen && (
+          <EditProductForm
+            isEditProductModalOpen={isEditProductModalOpen}
+            selectedProductId={selectedProductId}
+            onClose={handleCloseEditModal}
+            updateProducts={getAllProductsAndSetProducts}
           />
         )}
       </div>
