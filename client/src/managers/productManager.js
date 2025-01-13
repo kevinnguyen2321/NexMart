@@ -19,3 +19,13 @@ export const addNewProduct = (product) => {
     body: JSON.stringify(product),
   }).then((res) => res.json());
 };
+
+export const editProduct = (productId, product) => {
+  return fetch(`${_apiUrl}/${productId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(product),
+  });
+};

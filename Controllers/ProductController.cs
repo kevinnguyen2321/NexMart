@@ -83,6 +83,35 @@ public class ProductController : ControllerBase
         return Created($"/api/product/{product.Id}", newProduct);
     }
 
+    [HttpPut("{id}")]
+    [Authorize(Roles ="Admin")]
+    public IActionResult EditProduct(int id, Product product)
+    {
+        Product productToUpdate = _dbContext.Products
+        .FirstOrDefault(p => p.Id == id);
+
+        if (productToUpdate == null)
+        {
+            return NotFound();
+        }
+
+        productToUpdate.Name = product.Name;
+        productToUpdate.Price = product.Price;
+        productToUpdate.CategoryId = product.CategoryId;
+        productToUpdate.Description = product.Description;
+        productToUpdate.StockQuantity = product.StockQuantity;
+
+        if (!string.IsNullOrWhiteSpace(product.ImageUrl))
+        {
+            productToUpdate.ImageUrl = product.ImageUrl;
+        }
+
+        _dbContext.SaveChanges();
+        return NoContent();
+
+
+    }
+
     
 
 
