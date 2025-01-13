@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAllProducts } from '../../managers/productManager';
+import { deleteProduct, getAllProducts } from '../../managers/productManager';
 import './ProductsListAdmin.css';
 import { NewProductForm } from './NewProductForm';
 import { ProductDetails } from './ProductDetails';
@@ -44,6 +44,16 @@ export const ProductsListAdmin = () => {
     setSelectedProductId(null);
   };
 
+  const handleDeleteBtnClick = (product) => {
+    const userConfirmed = window.confirm(
+      `Are you sure you want to delete ${product.name}?`
+    );
+
+    if (userConfirmed) {
+      deleteProduct(product.id).then(() => getAllProductsAndSetProducts());
+    }
+  };
+
   useEffect(() => {
     getAllProductsAndSetProducts();
   }, []);
@@ -80,7 +90,9 @@ export const ProductsListAdmin = () => {
                   <button onClick={() => handleEditProductToggle(p.id)}>
                     Edit
                   </button>
-                  <button>Delete</button>
+                  <button onClick={() => handleDeleteBtnClick(p)}>
+                    Delete
+                  </button>
                 </div>
               </div>
             );
