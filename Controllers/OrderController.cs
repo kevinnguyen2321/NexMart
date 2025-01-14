@@ -39,6 +39,12 @@ public class OrderController : ControllerBase
         ordersQuery = ordersQuery.Where(o => o.UserProfileId == userProfileId.Value);
     }
 
+    if (!userProfileId.HasValue)
+    {
+        ordersQuery = ordersQuery.Where(o => !o.isCanceled);
+        
+    }
+
     // Transform the data into DTOs
     var orders = ordersQuery
         .Select(o => new OrderDTO
@@ -138,6 +144,24 @@ public class OrderController : ControllerBase
 
         return Ok(foundOrderDTO);
         
+    }
+
+    [HttpPut("{id}")]
+    [Authorize]
+    public IActionResult CancelOrder(int id)
+    {
+        Order orderToCancel = _dbContext.Orders
+        .FirstOrDefault(o => o.Id == id);
+
+        if (orderToCancel == null)
+        {
+            return NotFound();
+        }
+
+        orderToCancel.isCanceled = true;
+        _dbContext.SaveChanges();
+
+        return NoContent();
     }
 
  

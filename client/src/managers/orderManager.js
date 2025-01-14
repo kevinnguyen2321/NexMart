@@ -10,3 +10,12 @@ export const getAllOrders = (userProfileId) => {
 export const getOrderById = (id) => {
   return fetch(`${_apiUrl}/${id}`).then((res) => res.json());
 };
+
+export const cancelOrder = (orderId) => {
+  return fetch(`${_apiUrl}/${orderId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
