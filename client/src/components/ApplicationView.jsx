@@ -6,6 +6,7 @@ import { Home } from './home/Home';
 import { Orders } from './orders/Orders';
 import { ProductsListAdmin } from './products/ProductsListAdmin';
 import { ProductDetails } from './products/ProductDetails';
+import { MyOrders } from './orders/MyOrders';
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -36,6 +37,15 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute loggedInUser={loggedInUser} roles={['Admin']}>
               <Orders loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
+        />
+
+        <Route
+          path="my-orders"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser} roles={['Customer']}>
+              <MyOrders loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />

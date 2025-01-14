@@ -54,6 +54,20 @@ public class NexMartDbContext : IdentityDbContext<IdentityUser>
                 UserName = "customer1",
                 Email = "customer1@company.com",
                 PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "Customer123")
+            },
+             new IdentityUser
+            {
+                Id = "e7cd3e98-f2cd-4b3f-c223-7ffe71f79c48", // New Customer 2
+                UserName = "customer2",
+                Email = "customer2@company.com",
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "Customer234")
+            },
+            new IdentityUser
+            {
+                Id = "f8de4f99-g3de-5c4g-d334-8fff82g89d59", // New Customer 3
+                UserName = "customer3",
+                Email = "customer3@company.com",
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "Customer345")
             }
             
         });
@@ -70,7 +84,18 @@ public class NexMartDbContext : IdentityDbContext<IdentityUser>
             {
                 RoleId = "c4bbeb97-d3ba-4b53-b521-5ffa61e59b36", // Customer role ID
                 UserId = "d6bc2e97-e1fc-4a2f-b112-6ff861e69c37"  // User ID for Customer
+            },
+            new IdentityUserRole<string>
+            {
+                RoleId = "c4bbeb97-d3ba-4b53-b521-5ffa61e59b36", // Customer role ID
+                UserId = "e7cd3e98-f2cd-4b3f-c223-7ffe71f79c48"  // User ID for Customer 2
+            },
+            new IdentityUserRole<string>
+            {
+                RoleId = "c4bbeb97-d3ba-4b53-b521-5ffa61e59b36", // Customer role ID
+                UserId = "f8de4f99-g3de-5c4g-d334-8fff82g89d59"  // User ID for Customer 3
             }
+
         });
 
         
@@ -91,6 +116,22 @@ public class NexMartDbContext : IdentityDbContext<IdentityUser>
                 FirstName = "Tom",
                 LastName = "Jones",
                 Address = " 220 High Street",
+            },
+             new UserProfile
+            {
+                Id = 3,
+                IdentityUserId = "e7cd3e98-f2cd-4b3f-c223-7ffe71f79c48", // Customer 2 UserProfile
+                FirstName = "Jane",
+                LastName = "Smith",
+                Address = "300 Elm Avenue"
+            },
+            new UserProfile
+            {
+                Id = 4,
+                IdentityUserId = "f8de4f99-g3de-5c4g-d334-8fff82g89d59", // Customer 3 UserProfile
+                FirstName = "John",
+                LastName = "Doe",
+                Address = "400 Oak Street"
             }
             
         });
@@ -237,11 +278,11 @@ public class NexMartDbContext : IdentityDbContext<IdentityUser>
      // Seeding Orders
     modelBuilder.Entity<Order>().HasData(new Order[]
     {
-        new Order { Id = 1, OrderDate = DateTime.Now.AddDays(-10), UserProfileId = 2 },
-        new Order { Id = 2, OrderDate = DateTime.Now.AddDays(-7), UserProfileId = 2 },
-        new Order { Id = 3, OrderDate = DateTime.Now.AddDays(-5), UserProfileId = 2 },
-        new Order { Id = 4, OrderDate = DateTime.Now.AddDays(-3), UserProfileId = 2 },
-        new Order { Id = 5, OrderDate = DateTime.Now.AddDays(-1), UserProfileId = 2 },
+        new Order { Id = 1, OrderDate = DateTime.Now.AddDays(-10), UserProfileId = 2, isCanceled = false },
+        new Order { Id = 2, OrderDate = DateTime.Now.AddDays(-7), UserProfileId = 3 , isCanceled = false },
+        new Order { Id = 3, OrderDate = DateTime.Now.AddDays(-5), UserProfileId = 2 , isCanceled = false},
+        new Order { Id = 4, OrderDate = DateTime.Now.AddDays(-3), UserProfileId = 4 , isCanceled = true },
+        new Order { Id = 5, OrderDate = DateTime.Now.AddDays(-1), UserProfileId = 3 , isCanceled = false },
     });
 
 

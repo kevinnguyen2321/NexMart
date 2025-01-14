@@ -7,6 +7,7 @@ public class OrderDTO
     public DateTime OrderDate { get; set; }
     public int UserProfileId { get; set; }
     public UserProfileDTO UserProfile { get; set; }
+    public bool isCanceled { get; set; }
     public List<OrderProductDTO> OrderProducts { get; set; } = new List<OrderProductDTO>();
     public decimal OrderTotal => OrderProducts?.Sum(op => op.ProductTotal) ?? 0;
 }

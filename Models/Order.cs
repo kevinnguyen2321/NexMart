@@ -10,6 +10,8 @@ public class Order
     [Required]
     public int UserProfileId { get; set; }
     public UserProfile UserProfile { get; set; }
+    [Required]
+    public bool isCanceled { get; set; }
     public List<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
     public decimal OrderTotal => OrderProducts?.Sum(op => op.ProductTotal) ?? 0;
 }
