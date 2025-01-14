@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import { getAllOrders } from '../../managers/orderManager';
-import './Orders.css';
 import { OrderDetails } from './OrderDetails';
 
-export const Orders = ({ loggedInUser }) => {
-  const [orders, setOrders] = useState([]);
+export const MyOrders = ({ loggedInUser }) => {
+  const [myOrders, setMyOrders] = useState([]);
   const [selectedOrderId, setSelectedOrderId] = useState(null);
 
   useEffect(() => {
-    getAllOrders().then((data) => setOrders(data));
-  }, []);
+    getAllOrders(loggedInUser.id).then((data) => setMyOrders(data));
+  }, [loggedInUser]);
 
   const formatDate = (date) => {
     const jsDate = new Date(date);
@@ -29,7 +28,7 @@ export const Orders = ({ loggedInUser }) => {
   return (
     <div>
       <div className="orders-wrapper">
-        {orders.map((o) => {
+        {myOrders.map((o) => {
           return (
             <div className="order-card" key={o.id}>
               <div className="order-date-text-wrapper">
@@ -43,11 +42,9 @@ export const Orders = ({ loggedInUser }) => {
                 <button onClick={() => toggleOrderDetails(o.id)}>
                   {selectedOrderId === o.id ? 'Close' : 'View'}
                 </button>
-                <button>Cancel Order</button>
+                {!o.isCanceled && <button>Cancel Order</button>}
               </div>
-              {selectedOrderId === o.id && (
-                <OrderDetails orderId={o.id} loggedInUser={loggedInUser} />
-              )}
+              {selectedOrderId === o.id && <OrderDetails orderId={o.id} />}
             </div>
           );
         })}

@@ -1,7 +1,10 @@
 const _apiUrl = '/api/order';
 
-export const getAllOrders = () => {
-  return fetch(_apiUrl).then((res) => res.json());
+export const getAllOrders = (userProfileId) => {
+  const url = userProfileId
+    ? `${_apiUrl}?userProfileId=${userProfileId}`
+    : _apiUrl;
+  return fetch(url).then((res) => res.json());
 };
 
 export const getOrderById = (id) => {

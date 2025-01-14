@@ -21,13 +21,26 @@ public class OrderController : ControllerBase
 
     
     [HttpGet]
-    [Authorize(Roles = "Admin")]
-    public IActionResult Get ()
+    [Authorize]
+    public IActionResult Get ([FromQuery] int? userProfileId)
     {
-        return Ok(_dbContext.Orders
+    
+         
+         // Base query with Includes
+    var baseQuery = _dbContext.Orders
         .Include(o => o.UserProfile)
         .Include(o => o.OrderProducts)
-        .ThenInclude(op => op.Product)
+        .ThenInclude(op => op.Product);
+
+    // Apply filter if userProfileId is provided
+    IQueryable<Order> ordersQuery = baseQuery;
+    if (userProfileId.HasValue)
+    {
+        ordersQuery = ordersQuery.Where(o => o.UserProfileId == userProfileId.Value);
+    }
+
+    // Transform the data into DTOs
+    var orders = ordersQuery
         .Select(o => new OrderDTO
         {
             Id = o.Id,
@@ -39,37 +52,37 @@ public class OrderController : ControllerBase
                 FirstName = o.UserProfile.FirstName,
                 LastName = o.UserProfile.LastName,
                 Address = o.UserProfile.Address,
-                
             },
-            OrderProducts = o.OrderProducts !=  null ? o.OrderProducts
-            .Select(op => new OrderProductDTO
-            {
-                Id = op.Id,
-                OrderId = op.OrderId,
-                ProductId = op.ProductId,
-                Product = new ProductDTO
+            isCanceled = o.isCanceled,
+            OrderProducts = o.OrderProducts != null ? o.OrderProducts
+                .Select(op => new OrderProductDTO
                 {
-                    Id = op.Product.Id,
-                    Name = op.Product.Name,
-                    Price = op.Product.Price,
-                    StockQuantity = op.Product.StockQuantity
-                },
-                Quantity = op.Quantity
+                    Id = op.Id,
+                    OrderId = op.OrderId,
+                    ProductId = op.ProductId,
+                    Product = new ProductDTO
+                    {
+                        Id = op.Product.Id,
+                        Name = op.Product.Name,
+                        Price = op.Product.Price,
+                        StockQuantity = op.Product.StockQuantity
+                    },
+                    Quantity = op.Quantity
+                })
+                .ToList() : null
+        })
+        .ToList();
 
+    return Ok(orders);
 
-            }
-            
-            ).ToList(): null
+  
 
-        }).ToList()
         
-        
-        );
 
     }
 
     [HttpGet("{id}")]
-    [Authorize(Roles = "Admin")]
+    [Authorize]
 
     public IActionResult GetById(int id)
     {
@@ -97,6 +110,7 @@ public class OrderController : ControllerBase
                 Address = foundOrder.UserProfile.Address,
                 IdentityUserId = foundOrder.UserProfile.IdentityUserId
             },
+            isCanceled = foundOrder.isCanceled,
             OrderProducts = foundOrder.OrderProducts != null ?
             foundOrder.OrderProducts
             .Select(op => new OrderProductDTO

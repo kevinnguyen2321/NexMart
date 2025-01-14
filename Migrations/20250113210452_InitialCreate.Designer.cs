@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NexMart.Migrations
 {
     [DbContext(typeof(NexMartDbContext))]
-    [Migration("20250107015709_InitialCreate")]
+    [Migration("20250113210452_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -158,13 +158,13 @@ namespace NexMart.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "80809681-4056-4dd8-8146-d25ca24eb2a6",
+                            ConcurrencyStamp = "e6ef7d0b-6bd1-40d2-a4b0-e10400bc5553",
                             Email = "admina@strator.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPP3zQBnWqhiLqHpjtlbP0fcT5OEF7SMidbmMseNyJWl7ZzK3GJjd9RoP8o+HdU/fA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE42TU0Uyzor1e1j8acqeaTrAMYMLQhMIq2QX6robkYjNYu0mIHJJF+9KdmqCG1Utg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5f0dd6af-c96c-4418-a454-8f49b080a169",
+                            SecurityStamp = "ebdd6e92-e2db-4b13-af0e-4d5ce41a0d79",
                             TwoFactorEnabled = false,
                             UserName = "Administrator"
                         },
@@ -172,15 +172,43 @@ namespace NexMart.Migrations
                         {
                             Id = "d6bc2e97-e1fc-4a2f-b112-6ff861e69c37",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d1656712-f331-4ad5-b9e4-8ae8972fd7b8",
+                            ConcurrencyStamp = "278b0767-e968-44ea-8427-ebc956e64709",
                             Email = "customer1@company.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPFGg6LlBOjF6aPCUq+7aCdSwgp260aOdNdjHdW1a3QZbyZ6qIoEvlHTTdAzrdtJ3Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJeqfk5TJIxiYIoZwE88rFS9AcA0oqlt9vF4pnNuneljZJaanLe7dcSOlpKXxamBwg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5fb186ca-bd34-42c2-8932-4273732401a1",
+                            SecurityStamp = "2ce76b15-e976-4811-a3c1-edf8c696b34a",
                             TwoFactorEnabled = false,
                             UserName = "customer1"
+                        },
+                        new
+                        {
+                            Id = "e7cd3e98-f2cd-4b3f-c223-7ffe71f79c48",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "76f5a886-b41a-444d-96d7-30eda9b27b13",
+                            Email = "customer2@company.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEI0xAKxSANJDeOpMdu80KbDuS1CkNH70LQrCBoLIFdZx3ZFPLIM3vqaEHTBSv2P/4Q==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "a6fab7be-4546-4182-a3c0-0a2ce4dcdf57",
+                            TwoFactorEnabled = false,
+                            UserName = "customer2"
+                        },
+                        new
+                        {
+                            Id = "f8de4f99-g3de-5c4g-d334-8fff82g89d59",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "81f1e2a3-c7c8-4c22-a099-64ed512caf5d",
+                            Email = "customer3@company.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEPlroARA0Dgqw4bth3X4s1wJ23PxPFd3gnO+YCAfDoHd2lACtnZY4tOv6csn2Zs8MQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "61238a26-2cfc-4162-af53-8ede7c93d942",
+                            TwoFactorEnabled = false,
+                            UserName = "customer3"
                         });
                 });
 
@@ -254,6 +282,16 @@ namespace NexMart.Migrations
                         new
                         {
                             UserId = "d6bc2e97-e1fc-4a2f-b112-6ff861e69c37",
+                            RoleId = "c4bbeb97-d3ba-4b53-b521-5ffa61e59b36"
+                        },
+                        new
+                        {
+                            UserId = "e7cd3e98-f2cd-4b3f-c223-7ffe71f79c48",
+                            RoleId = "c4bbeb97-d3ba-4b53-b521-5ffa61e59b36"
+                        },
+                        new
+                        {
+                            UserId = "f8de4f99-g3de-5c4g-d334-8fff82g89d59",
                             RoleId = "c4bbeb97-d3ba-4b53-b521-5ffa61e59b36"
                         });
                 });
@@ -360,6 +398,9 @@ namespace NexMart.Migrations
                     b.Property<int>("UserProfileId")
                         .HasColumnType("integer");
 
+                    b.Property<bool>("isCanceled")
+                        .HasColumnType("boolean");
+
                     b.HasKey("Id");
 
                     b.HasIndex("UserProfileId");
@@ -370,32 +411,37 @@ namespace NexMart.Migrations
                         new
                         {
                             Id = 1,
-                            OrderDate = new DateTime(2024, 12, 27, 19, 57, 9, 9, DateTimeKind.Local).AddTicks(5015),
-                            UserProfileId = 2
+                            OrderDate = new DateTime(2025, 1, 3, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3559),
+                            UserProfileId = 2,
+                            isCanceled = false
                         },
                         new
                         {
                             Id = 2,
-                            OrderDate = new DateTime(2024, 12, 30, 19, 57, 9, 9, DateTimeKind.Local).AddTicks(5055),
-                            UserProfileId = 2
+                            OrderDate = new DateTime(2025, 1, 6, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3602),
+                            UserProfileId = 3,
+                            isCanceled = false
                         },
                         new
                         {
                             Id = 3,
-                            OrderDate = new DateTime(2025, 1, 1, 19, 57, 9, 9, DateTimeKind.Local).AddTicks(5057),
-                            UserProfileId = 2
+                            OrderDate = new DateTime(2025, 1, 8, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3604),
+                            UserProfileId = 2,
+                            isCanceled = false
                         },
                         new
                         {
                             Id = 4,
-                            OrderDate = new DateTime(2025, 1, 3, 19, 57, 9, 9, DateTimeKind.Local).AddTicks(5059),
-                            UserProfileId = 2
+                            OrderDate = new DateTime(2025, 1, 10, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3606),
+                            UserProfileId = 4,
+                            isCanceled = true
                         },
                         new
                         {
                             Id = 5,
-                            OrderDate = new DateTime(2025, 1, 5, 19, 57, 9, 9, DateTimeKind.Local).AddTicks(5061),
-                            UserProfileId = 2
+                            OrderDate = new DateTime(2025, 1, 12, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3609),
+                            UserProfileId = 3,
+                            isCanceled = false
                         });
                 });
 
@@ -1336,6 +1382,22 @@ namespace NexMart.Migrations
                             FirstName = "Tom",
                             IdentityUserId = "d6bc2e97-e1fc-4a2f-b112-6ff861e69c37",
                             LastName = "Jones"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "300 Elm Avenue",
+                            FirstName = "Jane",
+                            IdentityUserId = "e7cd3e98-f2cd-4b3f-c223-7ffe71f79c48",
+                            LastName = "Smith"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "400 Oak Street",
+                            FirstName = "John",
+                            IdentityUserId = "f8de4f99-g3de-5c4g-d334-8fff82g89d59",
+                            LastName = "Doe"
                         });
                 });
 

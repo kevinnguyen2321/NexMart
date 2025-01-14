@@ -42,6 +42,15 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                     </NavItem>
                   </>
                 )}
+                {loggedInUser && !loggedInUser.roles.includes('Admin') && (
+                  <>
+                    <NavItem>
+                      <NavLink tag={RRNavLink} to="/my-orders">
+                        My Orders
+                      </NavLink>
+                    </NavItem>
+                  </>
+                )}
               </Nav>
             </Collapse>
             <Button

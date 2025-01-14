@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getOrderById } from '../../managers/orderManager';
 import './Orders.css';
 
-export const OrderDetails = ({ orderId }) => {
+export const OrderDetails = ({ orderId, loggedInUser }) => {
   const [orderDetails, setOrderDetails] = useState(null);
 
   useEffect(() => {
@@ -16,7 +16,9 @@ export const OrderDetails = ({ orderId }) => {
   return (
     <div className="order-details">
       <h4>Order Details (Order {orderId})</h4>
-      <p>Customer: {orderDetails.userProfile.fullName}</p>
+      {loggedInUser?.roles.includes('Admin') && (
+        <p>Customer Name:{orderDetails.userProfile.fullName}</p>
+      )}
       <ul className="order-details-product-list">
         {orderDetails.orderProducts.map((product) => (
           <li key={product.id}>
