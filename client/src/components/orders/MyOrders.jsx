@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import { getAllOrders } from '../../managers/orderManager';
+import { cancelOrder, getAllOrders } from '../../managers/orderManager';
 import { OrderDetails } from './OrderDetails';
 
 export const MyOrders = ({ loggedInUser }) => {
   const [myOrders, setMyOrders] = useState([]);
   const [selectedOrderId, setSelectedOrderId] = useState(null);
 
-  useEffect(() => {
+  const getMyOdersAndSetMyOrders = () =>
     getAllOrders(loggedInUser.id).then((data) => setMyOrders(data));
+
+  useEffect(() => {
+    getMyOdersAndSetMyOrders();
   }, [loggedInUser]);
 
   const formatDate = (date) => {
@@ -22,6 +25,16 @@ export const MyOrders = ({ loggedInUser }) => {
       setSelectedOrderId(null); // Close the details if already open
     } else {
       setSelectedOrderId(orderId); // Open the details for the clicked order
+    }
+  };
+
+  const handleCancelBtnClick = (orderId) => {
+    const userConfirmed = window.confirm(
+      'Are you sure you want to cancel this order?'
+    );
+
+    if (userConfirmed) {
+      cancelOrder(orderId).then(() => getMyOdersAndSetMyOrders());
     }
   };
 
@@ -42,7 +55,11 @@ export const MyOrders = ({ loggedInUser }) => {
                 <button onClick={() => toggleOrderDetails(o.id)}>
                   {selectedOrderId === o.id ? 'Close' : 'View'}
                 </button>
-                {!o.isCanceled && <button>Cancel Order</button>}
+                {!o.isCanceled && (
+                  <button onClick={() => handleCancelBtnClick(o.id)}>
+                    Cancel Order
+                  </button>
+                )}
               </div>
               {selectedOrderId === o.id && <OrderDetails orderId={o.id} />}
             </div>
