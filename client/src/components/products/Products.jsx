@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import { getAllProducts } from '../../managers/productManager';
 import './Products.css';
 import { ProductDetails } from './ProductDetails';
+import { useCart } from '../context/useCart';
 
 export const Products = ({ selectedCategoryId }) => {
   const [products, setProducts] = useState([]);
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false);
+
+  const { addItemToCart } = useCart();
 
   useEffect(() => {
     getAllProducts().then((data) => {
@@ -58,7 +61,9 @@ export const Products = ({ selectedCategoryId }) => {
                 <button onClick={() => handleViewBtnClick(product.id)}>
                   View
                 </button>
-                <button>Add to cart</button>
+                <button onClick={() => addItemToCart(product)}>
+                  Add to cart
+                </button>
               </div>
             </div>
           ))}

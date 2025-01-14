@@ -11,42 +11,71 @@ import {
   NavbarToggler,
 } from 'reactstrap';
 import { logout } from '../../managers/authManager';
+import './NavBar.css';
+import { useCart } from '../context/useCart';
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
+  const { cartItems } = useCart();
 
   const toggleNavbar = () => setOpen(!open);
 
   return (
     <div>
-      <Navbar color="primary" light fixed="true" expand="lg">
-        <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
-          NexMart
-        </NavbarBrand>
+      <Navbar
+        className="main-navbar-wrapper"
+        color="primary"
+        light
+        fixed="true"
+        expand="lg"
+      >
+        <div className="next-mart-main-text-wrapper">
+          <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
+            NexMart
+          </NavbarBrand>
+        </div>
         {loggedInUser ? (
-          <>
+          <div className="nav-bar-links-wrapper">
             <NavbarToggler onClick={toggleNavbar} />
             <Collapse isOpen={open} navbar>
               <Nav navbar>
                 {loggedInUser?.roles.includes('Admin') && (
                   <>
                     <NavItem>
-                      <NavLink tag={RRNavLink} to="/orders">
+                      <NavLink
+                        className="orders-link"
+                        tag={RRNavLink}
+                        to="/orders"
+                      >
                         Orders
                       </NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink tag={RRNavLink} to="/products-list">
+                      <NavLink
+                        className="products-link"
+                        tag={RRNavLink}
+                        to="/products-list"
+                      >
                         Products
                       </NavLink>
                     </NavItem>
                   </>
                 )}
-                {loggedInUser && !loggedInUser.roles.includes('Admin') && (
+                {loggedInUser && loggedInUser.roles.includes('Customer') && (
                   <>
                     <NavItem>
-                      <NavLink tag={RRNavLink} to="/my-orders">
+                      <NavLink
+                        className="my-orders-link"
+                        tag={RRNavLink}
+                        to="/my-orders"
+                      >
                         My Orders
+                      </NavLink>
+                    </NavItem>
+
+                    <NavItem>
+                      <NavLink className="cart-link" tag={RRNavLink} to="/cart">
+                        Cart({cartItems.length})
                       </NavLink>
                     </NavItem>
                   </>
@@ -66,7 +95,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
             >
               Logout
             </Button>
-          </>
+          </div>
         ) : (
           <Nav navbar>
             <NavItem>

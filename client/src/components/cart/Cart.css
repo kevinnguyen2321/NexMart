@@ -1,0 +1,9 @@
+.cart-wrapper {
+  border: solid black;
+  margin: 150px auto 0 auto;
+  width: 40%;
+}
+
+.order-product {
+  border-bottom: solid 1px black;
+}
