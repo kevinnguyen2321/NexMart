@@ -45,7 +45,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
         <Route
           path="my-orders"
           element={
-            <AuthorizedRoute loggedInUser={loggedInUser} roles={['Customer']}>
+            <AuthorizedRoute loggedInUser={loggedInUser}>
               <MyOrders loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
@@ -54,7 +54,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
         <Route
           path="cart"
           element={
-            <AuthorizedRoute loggedInUser={loggedInUser} roles={['Customer']}>
+            <AuthorizedRoute loggedInUser={loggedInUser}>
               <Cart loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }

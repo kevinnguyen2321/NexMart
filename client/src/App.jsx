@@ -24,8 +24,8 @@ function App() {
 
   return (
     <>
-      <CartProvider>
-      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
+      <CartProvider loggedInUser={loggedInUser}>
+        <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
         <ApplicationViews
           loggedInUser={loggedInUser}
           setLoggedInUser={setLoggedInUser}

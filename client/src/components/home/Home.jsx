@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Categories } from '../categories/Categories';
 import { Products } from '../products/Products';
 
-export const Home = () => {
+export const Home = ({ loggedInUser }) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
 
   const handleCategoryClick = (categoryId) => {
@@ -14,7 +14,10 @@ export const Home = () => {
         selectedCategoryId={selectedCategoryId}
         handleCategoryClick={handleCategoryClick}
       />
-      <Products selectedCategoryId={selectedCategoryId} />
+      <Products
+        loggedInUser={loggedInUser}
+        selectedCategoryId={selectedCategoryId}
+      />
     </div>
   );
 };

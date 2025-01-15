@@ -4,7 +4,7 @@ import './Products.css';
 import { ProductDetails } from './ProductDetails';
 import { useCart } from '../context/useCart';
 
-export const Products = ({ selectedCategoryId }) => {
+export const Products = ({ selectedCategoryId, loggedInUser }) => {
   const [products, setProducts] = useState([]);
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
