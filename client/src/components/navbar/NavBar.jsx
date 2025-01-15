@@ -69,7 +69,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                     </NavItem>
                   </>
                 )}
-                {loggedInUser && loggedInUser.roles.includes('Customer') && (
+                {loggedInUser && !loggedInUser.roles.includes('Admin') && (
                   <>
                     <NavItem>
                       <NavLink

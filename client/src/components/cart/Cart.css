@@ -7,3 +7,7 @@
 .order-product {
   border-bottom: solid 1px black;
 }
+
+.order-total-text span {
+  font-weight: normal;
+}
