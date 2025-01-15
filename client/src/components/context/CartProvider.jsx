@@ -10,7 +10,19 @@ export const CartProvider = ({ children }) => {
 
   const addItemToCart = (item) => {
     setCartItems((prev) => {
-      const updatedCartItems = [...prev, item];
+      const updatedCartItems = [...prev];
+      const existingItem = updatedCartItems.find(
+        (cartItem) => cartItem.id === item.id
+      );
+
+      if (existingItem) {
+        // Increment quantity if item already exists
+        existingItem.quantity += 1;
+      } else {
+        // Add new item with quantity of 1
+        updatedCartItems.push({ ...item, quantity: 1 });
+      }
+
       // Save updated cartItems to localStorage
       localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
       return updatedCartItems;
@@ -19,16 +31,39 @@ export const CartProvider = ({ children }) => {
 
   const removeItemFromCart = (itemId) => {
     setCartItems((prev) => {
-      const updatedCartItems = prev.filter((item) => item.id !== itemId);
+      const updatedCartItems = prev
+        .map((item) => {
+          if (item.id === itemId) {
+            // Decrement quantity if more than 1 exists
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        })
+        .filter((item) => item.quantity > 0); // Remove items with quantity 0
+
       // Save updated cartItems to localStorage
       localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
       return updatedCartItems;
     });
   };
 
+  const getTotalItemsInCart = () => {
+    const totalQuantity = cartItems.reduce(
+      (sum, product) => sum + product.quantity,
+      0
+    );
+
+    return totalQuantity;
+  };
+
   return (
     <CartContext.Provider
-      value={{ cartItems, addItemToCart, removeItemFromCart }}
+      value={{
+        cartItems,
+        addItemToCart,
+        removeItemFromCart,
+        getTotalItemsInCart,
+      }}
     >
       {children}
     </CartContext.Provider>

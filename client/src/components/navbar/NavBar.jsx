@@ -16,7 +16,7 @@ import { useCart } from '../context/useCart';
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
-  const { cartItems } = useCart();
+  const { getTotalItemsInCart } = useCart();
 
   const toggleNavbar = () => setOpen(!open);
 
@@ -34,6 +34,14 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
             NexMart
           </NavbarBrand>
         </div>
+        <div className="cart-link-wrapper">
+          <NavItem>
+            <NavLink className="cart-link" tag={RRNavLink} to="/cart">
+              Cart({getTotalItemsInCart()})
+            </NavLink>
+          </NavItem>
+        </div>
+
         {loggedInUser ? (
           <div className="nav-bar-links-wrapper">
             <NavbarToggler onClick={toggleNavbar} />
@@ -70,12 +78,6 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                         to="/my-orders"
                       >
                         My Orders
-                      </NavLink>
-                    </NavItem>
-
-                    <NavItem>
-                      <NavLink className="cart-link" tag={RRNavLink} to="/cart">
-                        Cart({cartItems.length})
                       </NavLink>
                     </NavItem>
                   </>
