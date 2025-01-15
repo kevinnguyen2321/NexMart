@@ -5,6 +5,7 @@ import { tryGetLoggedInUser } from './managers/authManager';
 import { Spinner } from 'reactstrap';
 import NavBar from './components/navbar/NavBar';
 import ApplicationViews from './components/ApplicationView';
+import { CartProvider } from './components/context/CartProvider';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState();
@@ -23,11 +24,13 @@ function App() {
 
   return (
     <>
+      <CartProvider>
       <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
-      <ApplicationViews
-        loggedInUser={loggedInUser}
-        setLoggedInUser={setLoggedInUser}
-      />
+        <ApplicationViews
+          loggedInUser={loggedInUser}
+          setLoggedInUser={setLoggedInUser}
+        />
+      </CartProvider>
     </>
   );
 }

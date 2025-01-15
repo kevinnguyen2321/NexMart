@@ -1,0 +1,27 @@
+.main-navbar-wrapper {
+  /* border: solid black; */
+}
+
+.next-mart-main-text-wrapper {
+  /* border: solid black; */
+}
+
+.nav-bar-links-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 13%;
+
+  /* border: solid black; */
+}
+
+.mr-auto,
+.orders-link,
+.products-link,
+.my-orders-link,
+.cart-link {
+  color: whitesmoke;
+}
+
+.cart-link-wrapper {
+  list-style: none;
+}
