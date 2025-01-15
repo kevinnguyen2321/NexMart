@@ -164,6 +164,69 @@ public class OrderController : ControllerBase
         return NoContent();
     }
 
+    [HttpPost]
+    // [Authorize]
+    public IActionResult PlaceOrder(OrderFromCartDTO order)
+    {
+
+        if (order.OrderProductsFromCarts == null || 
+        !order.OrderProductsFromCarts.Any())
+        {
+            return BadRequest("Order must contain at least one product.");
+        }
+
+        Order newOrder = new Order
+        {
+            OrderDate = DateTime.Now,
+            UserProfileId = order.UserProfileId,
+            isCanceled = false,
+            OrderProducts = new List<OrderProduct>()
+        };
+
+        _dbContext.Orders.Add(newOrder);
+        _dbContext.SaveChanges();
+
+        foreach (OrderProductsFromCartDTO op in order.OrderProductsFromCarts)
+        {
+            OrderProduct orderProduct = new OrderProduct
+            {
+                OrderId = newOrder.Id,
+                ProductId = op.ProductId,
+                Quantity = op.Quantity
+
+            };
+
+            newOrder.OrderProducts.Add(orderProduct);
+        }
+
+        _dbContext.OrderProducts.AddRange(newOrder.OrderProducts);
+        _dbContext.SaveChanges();
+
+        OrderDTO newOrderDTO = new OrderDTO
+        {
+            Id = newOrder.Id,
+            OrderDate = newOrder.OrderDate,
+            UserProfileId = newOrder.UserProfileId,
+            isCanceled = newOrder.isCanceled,
+            OrderProducts = newOrder.OrderProducts
+            .Select(op => new OrderProductDTO
+            {
+                Id = op.Id,
+                OrderId = op.OrderId,
+                ProductId = op.ProductId,
+                Quantity = op.Quantity
+
+            }).ToList()
+
+        };
+
+
+        return Created($"/api/order/{newOrder.Id}",newOrderDTO);
+
+
+        
+    }
+
  
 
 
