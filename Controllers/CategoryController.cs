@@ -28,6 +28,25 @@ public class CategoryController : ControllerBase
     return Ok(categories);
     }
 
+    [HttpPost]
+    [Authorize(Roles ="Admin")]
+    public IActionResult AddNewCategory(Category category)
+    {
+        _dbContext.Categories.Add(category);
+        _dbContext.SaveChanges();
+
+        CategoryDTO newCategory = new CategoryDTO
+        {
+            Id = category.Id,
+            Name = category.Name
+
+        };
+
+        return Created($"/api/category/{category.Id}",newCategory);
+
+
+    }
+
 
 
 

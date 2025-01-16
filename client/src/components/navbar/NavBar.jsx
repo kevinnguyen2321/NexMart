@@ -67,6 +67,15 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                         Products
                       </NavLink>
                     </NavItem>
+                    <NavItem>
+                      <NavLink
+                        className="categories-link"
+                        tag={RRNavLink}
+                        to="/category-list"
+                      >
+                        Categories
+                      </NavLink>
+                    </NavItem>
                   </>
                 )}
                 {loggedInUser && !loggedInUser.roles.includes('Admin') && (

@@ -9,7 +9,7 @@
 .nav-bar-links-wrapper {
   display: flex;
   justify-content: space-between;
-  width: 13%;
+  width: 20%;
 
   /* border: solid black; */
 }
@@ -18,7 +18,8 @@
 .orders-link,
 .products-link,
 .my-orders-link,
-.cart-link {
+.cart-link,
+.categories-link {
   color: whitesmoke;
 }
 
