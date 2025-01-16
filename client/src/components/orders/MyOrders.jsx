@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { cancelOrder, getAllOrders } from '../../managers/orderManager';
 import { OrderDetails } from './OrderDetails';
+import './MyOrders.css';
 
 export const MyOrders = ({ loggedInUser }) => {
   const [myOrders, setMyOrders] = useState([]);
@@ -16,7 +17,7 @@ export const MyOrders = ({ loggedInUser }) => {
   const formatDate = (date) => {
     const jsDate = new Date(date);
 
-    return jsDate.toLocaleString();
+    return jsDate.toLocaleDateString();
   };
 
   const toggleOrderDetails = (orderId) => {
@@ -45,6 +46,7 @@ export const MyOrders = ({ loggedInUser }) => {
           return (
             <div className="order-card" key={o.id}>
               <div className="order-date-text-wrapper">
+                {o.isCanceled && <div>(Order Canceled)</div>}
                 <div>Order Id: {o.id}</div>
                 <div className="order-date-wrapper">
                   Order Date:{formatDate(o.orderDate)}
