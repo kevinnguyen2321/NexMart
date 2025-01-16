@@ -1,13 +1,25 @@
 import { useEffect, useState } from 'react';
 import { useCart } from '../context/useCart';
 import './Cart.css';
+import { placeOrder } from '../../managers/orderManager';
+import { useNavigate } from 'react-router-dom';
 
 export const Cart = ({ loggedInUser }) => {
   const [order, setOrder] = useState({
     userProfileId: loggedInUser.id,
-    orderProducts: [],
+    orderProductsFromCart: [],
   });
-  const { cartItems, removeItemFromCart } = useCart();
+  const { cartItems, removeItemFromCart, clearCart } = useCart();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const updatedOrderProducts = mapCartItemsToOrderProducts(cartItems);
+    setOrder((prevOrder) => ({
+      ...prevOrder,
+      orderProductsFromCart: updatedOrderProducts,
+    }));
+  }, [cartItems]);
 
   let orderTotal = 0;
 
@@ -31,18 +43,17 @@ export const Cart = ({ loggedInUser }) => {
     removeItemFromCart(id);
   };
 
-  useEffect(() => {
-    const updatedOrderProducts = mapCartItemsToOrderProducts(cartItems);
-    setOrder((prevOrder) => ({
-      ...prevOrder,
-      orderProducts: updatedOrderProducts,
-    }));
-  }, [cartItems]);
+  const handlePlaceOrderBtnClick = () => {
+    placeOrder(order).then(() => {
+      clearCart();
+      navigate('/my-orders');
+    });
+  };
 
   return (
     <div className="cart-wrapper">
       <h1>My Cart</h1>
-      {order?.orderProducts.map((op) => {
+      {order?.orderProductsFromCart.map((op) => {
         const product = cartItems.find(
           (cartItem) => cartItem.id === op.productId
         );
@@ -63,6 +74,9 @@ export const Cart = ({ loggedInUser }) => {
         <h2 className="order-total-text">
           Order Total:<span> ${orderTotal.toFixed(2)}</span>
         </h2>
+        {order.orderProductsFromCart.length > 0 && (
+          <button onClick={handlePlaceOrderBtnClick}>Place Order</button>
+        )}
       </div>
     </div>
   );

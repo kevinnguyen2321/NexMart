@@ -165,12 +165,12 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost]
-    // [Authorize]
+    [Authorize]
     public IActionResult PlaceOrder(OrderFromCartDTO order)
     {
 
-        if (order.OrderProductsFromCarts == null || 
-        !order.OrderProductsFromCarts.Any())
+        if (order.OrderProductsFromCart == null || 
+        !order.OrderProductsFromCart.Any())
         {
             return BadRequest("Order must contain at least one product.");
         }
@@ -186,7 +186,7 @@ public class OrderController : ControllerBase
         _dbContext.Orders.Add(newOrder);
         _dbContext.SaveChanges();
 
-        foreach (OrderProductsFromCartDTO op in order.OrderProductsFromCarts)
+        foreach (OrderProductsFromCartDTO op in order.OrderProductsFromCart)
         {
             OrderProduct orderProduct = new OrderProduct
             {
