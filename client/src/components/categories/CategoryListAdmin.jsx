@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getAllCategories } from '../../managers/categoryManager';
+import {
+  deleteCategory,
+  getAllCategories,
+} from '../../managers/categoryManager';
 import './CategoryListAdmin.css';
 import { NewCategoryForm } from './NewCategoryForm';
 import { EditCategoryForm } from './EditCategoryForm';
@@ -35,6 +38,16 @@ export const CategoryListAdmin = () => {
     setIsEditCategoryFormOpen(false);
   };
 
+  const handleDeleteBtnClick = (category) => {
+    const userConfirmed = window.confirm(
+      `Are you sure you want to delete the category ${category.name}?`
+    );
+
+    if (userConfirmed) {
+      deleteCategory(category.id).then(() => getAndSetAllCategories());
+    }
+  };
+
   return (
     <>
       <div className="category-list-wrapper">
@@ -44,9 +57,11 @@ export const CategoryListAdmin = () => {
         {categories.map((c) => {
           return (
             <div className="category-list-card" key={c.id}>
-              <p>{c.name}</p>
+              <p>
+                {c.id} .{c.name}
+              </p>
               <button onClick={() => handleEditBtnClick(c.id)}>Edit</button>
-              <button>Delete</button>
+              <button onClick={() => handleDeleteBtnClick(c)}>Delete</button>
             </div>
           );
         })}
