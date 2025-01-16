@@ -28,6 +28,25 @@ public class CategoryController : ControllerBase
     return Ok(categories);
     }
 
+    [HttpGet("{id}")]
+    [Authorize(Roles ="Admin")]
+    public IActionResult GetById(int id)
+    {
+        Category foundCategory = _dbContext.Categories
+        .FirstOrDefault(c => c.Id == id );
+
+        if (foundCategory == null)
+        {
+            return NotFound();
+        }
+
+        return Ok( new CategoryDTO
+        {
+            Id = foundCategory.Id,
+            Name = foundCategory.Name
+        });
+    }
+
     [HttpPost]
     [Authorize(Roles ="Admin")]
     public IActionResult AddNewCategory(Category category)
@@ -43,8 +62,24 @@ public class CategoryController : ControllerBase
         };
 
         return Created($"/api/category/{category.Id}",newCategory);
+    }
 
+    [HttpPut("{id}")]
+    [Authorize(Roles ="Admin")]
+    public IActionResult EditCategory(int id, Category category)
+    {
+        Category categoryToUpdate = _dbContext.Categories
+        .FirstOrDefault(c => c.Id == id);
 
+        if (categoryToUpdate == null)
+        {
+            return NotFound();
+        }
+
+        categoryToUpdate.Name = category.Name;
+        _dbContext.SaveChanges();
+
+        return NoContent();
     }
 
 
