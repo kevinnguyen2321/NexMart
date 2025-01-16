@@ -8,6 +8,7 @@ import { ProductsListAdmin } from './products/ProductsListAdmin';
 import { ProductDetails } from './products/ProductDetails';
 import { MyOrders } from './orders/MyOrders';
 import { Cart } from './cart/Cart';
+import { CategoryListAdmin } from './categories/CategoryListAdmin';
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -56,6 +57,15 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
               <Cart loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
+        />
+
+        <Route
+          path="category-list"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser} roles={['Admin']}>
+              <CategoryListAdmin loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />

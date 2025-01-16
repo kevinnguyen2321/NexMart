@@ -1,0 +1,12 @@
+.category-list-wrapper {
+  border: solid black;
+  width: 40%;
+  margin: 150px auto 0 auto;
+  text-align: center;
+}
+
+.category-list-card {
+  border-bottom: 1px solid black;
+  display: flex;
+  gap: 15px;
+}
