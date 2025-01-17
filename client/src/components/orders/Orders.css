@@ -51,3 +51,126 @@
   list-style: none;
   font-size: 1.3rem;
 }
+
+/* MEDIA QUERIES */
+/* Small Mobile (Up to 320px) */
+@media (max-width: 320px) {
+  .orders-wrapper {
+    /* border: solid yellow; */
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .order-card {
+    font-size: 1rem;
+  }
+
+  .order-date-wrapper {
+    width: 100%;
+    font-size: 1.2rem;
+    /* border: solid black; */
+  }
+
+  .order-total-wrapper {
+    /* border: solid black; */
+    width: 100%;
+  }
+}
+
+/* Mobile (321px - 480px) */
+@media (min-width: 321px) and (max-width: 480px) {
+  .orders-wrapper {
+    /* border: solid yellow; */
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .order-card {
+    font-size: 1rem;
+  }
+
+  .order-date-wrapper {
+    width: 100%;
+    font-size: 1.2rem;
+    /* border: solid black; */
+  }
+
+  .order-total-wrapper {
+    /* border: solid black; */
+    width: 100%;
+  }
+}
+
+/* Large Mobile / Small Tablets (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .orders-wrapper {
+    /* border: solid yellow; */
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .order-card {
+    font-size: 1rem;
+  }
+
+  .order-date-wrapper {
+    width: 100%;
+    /* border: solid black; */
+  }
+
+  .order-total-wrapper {
+    /* border: solid black; */
+    width: 100%;
+  }
+}
+
+/* Tablets (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .orders-wrapper {
+    /* border: solid yellow; */
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .order-card {
+    font-size: 1rem;
+  }
+
+  .order-date-wrapper {
+    width: 100%;
+    /* border: solid black; */
+  }
+
+  .order-total-wrapper {
+    /* border: solid black; */
+    width: 100%;
+  }
+}
+
+/* Laptops (1025px - 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .orders-wrapper {
+    /* border: solid yellow; */
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .order-card {
+    font-size: 1rem;
+  }
+
+  .order-date-wrapper {
+    width: 100%;
+    /* border: solid black; */
+  }
+
+  .order-total-wrapper {
+    /* border: solid black; */
+    width: 100%;
+  }
+}

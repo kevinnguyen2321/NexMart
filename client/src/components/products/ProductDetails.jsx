@@ -23,6 +23,7 @@ export const ProductDetails = ({
             <span>Category:</span> {product?.category?.name}
           </p>
           <img
+            className="product-details-img"
             src={
               product.imageUrl
                 ? product.imageUrl

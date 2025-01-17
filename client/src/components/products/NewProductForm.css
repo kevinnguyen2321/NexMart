@@ -36,3 +36,26 @@
 .product-description span {
   font-weight: bold;
 }
+
+/* MEDIA QUERIES */
+/* Small Mobile (Up to 320px) */
+@media (max-width: 320px) {
+  .modal-content {
+    width: 100%;
+  }
+
+  .product-details-img {
+    width: 100%;
+  }
+}
+
+/* Mobile (321px - 480px) */
+@media (min-width: 321px) and (max-width: 480px) {
+  .modal-content {
+    width: 100%;
+  }
+
+  .product-details-img {
+    width: 100%;
+  }
+}
