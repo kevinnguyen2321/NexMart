@@ -9,6 +9,7 @@ import { ProductDetails } from './products/ProductDetails';
 import { MyOrders } from './orders/MyOrders';
 import { Cart } from './cart/Cart';
 import { CategoryListAdmin } from './categories/CategoryListAdmin';
+import { Results } from './search/Results';
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -69,6 +70,8 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             </AuthorizedRoute>
           }
         />
+
+        <Route path="results" element={<Results />} />
       </Route>
       <Route path="*" element={<p>Whoops, nothing here...</p>} />
     </Routes>

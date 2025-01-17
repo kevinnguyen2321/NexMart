@@ -6,6 +6,7 @@ import { Spinner } from 'reactstrap';
 import NavBar from './components/navbar/NavBar';
 import ApplicationViews from './components/ApplicationView';
 import { CartProvider } from './components/context/CartProvider';
+import { SearchContextComp } from './components/context/SearchContextComp';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState();
@@ -25,11 +26,16 @@ function App() {
   return (
     <>
       <CartProvider loggedInUser={loggedInUser}>
-        <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
-        <ApplicationViews
-          loggedInUser={loggedInUser}
-          setLoggedInUser={setLoggedInUser}
-        />
+        <SearchContextComp>
+          <NavBar
+            loggedInUser={loggedInUser}
+            setLoggedInUser={setLoggedInUser}
+          />
+          <ApplicationViews
+            loggedInUser={loggedInUser}
+            setLoggedInUser={setLoggedInUser}
+          />
+        </SearchContextComp>
       </CartProvider>
     </>
   );

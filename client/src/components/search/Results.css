@@ -1,0 +1,13 @@
+.results-products-wrapper {
+  border: solid black;
+  margin: 150px auto 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.result-product-card {
+  border: 1px solid rgb(253, 78, 78);
+  width: 30%;
+}
