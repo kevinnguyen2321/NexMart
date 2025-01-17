@@ -49,3 +49,85 @@
 .display-categories-wrapper li {
   cursor: pointer;
 }
+
+/* MEDIA QUERIES */
+/* Small Mobile (Up to 320px) */
+@media (max-width: 320px) {
+  .category-wrapper {
+    border: solid yellow;
+    flex-direction: column;
+  }
+
+  .display-categories-wrapper {
+    display: none;
+  }
+
+  .category-dropdown-menu {
+    left: 55px;
+  }
+}
+
+/* Mobile (321px - 480px) */
+@media (min-width: 321px) and (max-width: 480px) {
+  .category-wrapper {
+    /* border: solid yellow; */
+    flex-direction: column;
+  }
+
+  .display-categories-wrapper {
+    display: none;
+  }
+
+  .category-dropdown-menu {
+    left: 100px;
+  }
+}
+
+/* Large Mobile / Small Tablets (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .category-wrapper {
+    /* border: solid yellow; */
+    flex-direction: column;
+  }
+
+  .display-categories-wrapper {
+    display: none;
+  }
+
+  .category-dropdown-menu {
+    left: 200px;
+  }
+}
+
+/* Tablets (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .category-wrapper {
+    /* border: solid yellow; */
+    flex-direction: column;
+  }
+
+  .display-categories-wrapper {
+    display: none;
+  }
+
+  .category-dropdown-menu {
+    left: 300px;
+  }
+}
+
+/* Laptops (1025px - 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .category-wrapper {
+    /* border: solid yellow; */
+  }
+
+  .display-categories-wrapper ul {
+    /* border: solid yellow; */
+    gap: 80px;
+    font-size: .9rem;
+  }
+
+  .category-dropdown-menu {
+    left: 0px;
+  }
+}
