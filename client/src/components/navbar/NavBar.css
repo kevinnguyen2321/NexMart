@@ -6,14 +6,6 @@
   /* border: solid black; */
 }
 
-.nav-bar-links-wrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 20%;
-
-  /* border: solid black; */
-}
-
 .mr-auto,
 .orders-link,
 .products-link,
@@ -23,6 +15,37 @@
   color: whitesmoke;
 }
 
+.left-side-wrapper {
+  /* border: solid black; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .left-side-wrapper input {
+  width: 70%;
+  margin-right: 55px;
+  border-radius: 5px;
+  outline: none;
+} */
+
+.search-bar-wrapper {
+  /* border: solid yellow; */
+  width: 70%;
+}
+
+.search-bar-wrapper input {
+  width: 80%;
+  margin-left: 95px;
+  margin-top: 5px;
+}
+
+.right-side-wrapper {
+  width: 20%;
+}
+
 .cart-link-wrapper {
   list-style: none;
+  /* border: solid yellow; */
+  display: flex;
 }
