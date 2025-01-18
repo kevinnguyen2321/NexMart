@@ -155,13 +155,13 @@ namespace NexMart.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e6ef7d0b-6bd1-40d2-a4b0-e10400bc5553",
+                            ConcurrencyStamp = "87aa8f6a-b881-43f2-8ef1-aeac782e2fb0",
                             Email = "admina@strator.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEE42TU0Uyzor1e1j8acqeaTrAMYMLQhMIq2QX6robkYjNYu0mIHJJF+9KdmqCG1Utg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOQ4yX11i0t0fr5QPG1IPdInJn9JwWMiqvSXW9w2HQxQwioA/NphA77UwMeNQ5v5cg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ebdd6e92-e2db-4b13-af0e-4d5ce41a0d79",
+                            SecurityStamp = "28593d9a-73f4-4034-89c7-c5b3c350527d",
                             TwoFactorEnabled = false,
                             UserName = "Administrator"
                         },
@@ -169,13 +169,13 @@ namespace NexMart.Migrations
                         {
                             Id = "d6bc2e97-e1fc-4a2f-b112-6ff861e69c37",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "278b0767-e968-44ea-8427-ebc956e64709",
+                            ConcurrencyStamp = "8af89f33-a268-4f95-b545-9e7b47e61688",
                             Email = "customer1@company.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJeqfk5TJIxiYIoZwE88rFS9AcA0oqlt9vF4pnNuneljZJaanLe7dcSOlpKXxamBwg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOOxkMHT4K29/FFi5fx8ZvoaQTrn7y4eLnRJS5G5CRxWJRzKyiAf+J/OSZvN+FYMtQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2ce76b15-e976-4811-a3c1-edf8c696b34a",
+                            SecurityStamp = "6ffa0820-56be-44b5-bd26-850bfae03dd6",
                             TwoFactorEnabled = false,
                             UserName = "customer1"
                         },
@@ -183,13 +183,13 @@ namespace NexMart.Migrations
                         {
                             Id = "e7cd3e98-f2cd-4b3f-c223-7ffe71f79c48",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "76f5a886-b41a-444d-96d7-30eda9b27b13",
+                            ConcurrencyStamp = "3c556f57-4e55-4dbd-9628-da9034e569f8",
                             Email = "customer2@company.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEI0xAKxSANJDeOpMdu80KbDuS1CkNH70LQrCBoLIFdZx3ZFPLIM3vqaEHTBSv2P/4Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPaYsYECoLQZWsDLhLEkjG3SsJxbjysixWH851+OWtC9ZpLnvqf19Xe4vleFEuIG7w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a6fab7be-4546-4182-a3c0-0a2ce4dcdf57",
+                            SecurityStamp = "3317013d-a366-4a4b-baed-54ff8e93c100",
                             TwoFactorEnabled = false,
                             UserName = "customer2"
                         },
@@ -197,13 +197,13 @@ namespace NexMart.Migrations
                         {
                             Id = "f8de4f99-g3de-5c4g-d334-8fff82g89d59",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "81f1e2a3-c7c8-4c22-a099-64ed512caf5d",
+                            ConcurrencyStamp = "2fa7d9e6-9cc5-4f72-8965-c72fc02e7260",
                             Email = "customer3@company.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPlroARA0Dgqw4bth3X4s1wJ23PxPFd3gnO+YCAfDoHd2lACtnZY4tOv6csn2Zs8MQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMXe3w5lIvXILTC+kFH1obGi3Mgua/15FRV2Uw6YiHWDBeX24bK/wcUTER/+TiDPiA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "61238a26-2cfc-4162-af53-8ede7c93d942",
+                            SecurityStamp = "fb8d16b3-4385-4924-8f54-aca2b3dfaf56",
                             TwoFactorEnabled = false,
                             UserName = "customer3"
                         });
@@ -408,35 +408,35 @@ namespace NexMart.Migrations
                         new
                         {
                             Id = 1,
-                            OrderDate = new DateTime(2025, 1, 3, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3559),
+                            OrderDate = new DateTime(2025, 1, 7, 20, 1, 7, 616, DateTimeKind.Local).AddTicks(2778),
                             UserProfileId = 2,
                             isCanceled = false
                         },
                         new
                         {
                             Id = 2,
-                            OrderDate = new DateTime(2025, 1, 6, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3602),
+                            OrderDate = new DateTime(2025, 1, 10, 20, 1, 7, 616, DateTimeKind.Local).AddTicks(2834),
                             UserProfileId = 3,
                             isCanceled = false
                         },
                         new
                         {
                             Id = 3,
-                            OrderDate = new DateTime(2025, 1, 8, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3604),
+                            OrderDate = new DateTime(2025, 1, 12, 20, 1, 7, 616, DateTimeKind.Local).AddTicks(2836),
                             UserProfileId = 2,
                             isCanceled = false
                         },
                         new
                         {
                             Id = 4,
-                            OrderDate = new DateTime(2025, 1, 10, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3606),
+                            OrderDate = new DateTime(2025, 1, 14, 20, 1, 7, 616, DateTimeKind.Local).AddTicks(2839),
                             UserProfileId = 4,
                             isCanceled = true
                         },
                         new
                         {
                             Id = 5,
-                            OrderDate = new DateTime(2025, 1, 12, 15, 4, 52, 356, DateTimeKind.Local).AddTicks(3609),
+                            OrderDate = new DateTime(2025, 1, 16, 20, 1, 7, 616, DateTimeKind.Local).AddTicks(2841),
                             UserProfileId = 3,
                             isCanceled = false
                         });
@@ -580,6 +580,7 @@ namespace NexMart.Migrations
                             Id = 1,
                             CategoryId = 1,
                             Description = "Latest model with advanced features.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737147528/smartphone_snyc32.png",
                             Name = "Smartphone",
                             Price = 699.99m,
                             StockQuantity = 50
@@ -589,6 +590,7 @@ namespace NexMart.Migrations
                             Id = 2,
                             CategoryId = 1,
                             Description = "High-performance laptop for work and gaming.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161746/laptop_rqwu1z.png",
                             Name = "Laptop",
                             Price = 999.99m,
                             StockQuantity = 30
@@ -598,6 +600,7 @@ namespace NexMart.Migrations
                             Id = 3,
                             CategoryId = 1,
                             Description = "Noise-cancelling and long battery life.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161738/wirelss_earbuds_zquyxb.png",
                             Name = "Wireless Earbuds",
                             Price = 129.99m,
                             StockQuantity = 100
@@ -607,6 +610,7 @@ namespace NexMart.Migrations
                             Id = 4,
                             CategoryId = 1,
                             Description = "Track your fitness and stay connected.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161749/smartwatch_trbw5c.png",
                             Name = "Smartwatch",
                             Price = 199.99m,
                             StockQuantity = 70
@@ -616,6 +620,7 @@ namespace NexMart.Migrations
                             Id = 5,
                             CategoryId = 1,
                             Description = "Ultra HD display for a cinematic experience.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161738/4K_TV_kcravp.png",
                             Name = "4K TV",
                             Price = 499.99m,
                             StockQuantity = 20
@@ -625,6 +630,7 @@ namespace NexMart.Migrations
                             Id = 6,
                             CategoryId = 1,
                             Description = "Next-gen console with immersive graphics.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161745/gaming_console_spdufh.png",
                             Name = "Gaming Console",
                             Price = 399.99m,
                             StockQuantity = 25
@@ -634,6 +640,7 @@ namespace NexMart.Migrations
                             Id = 7,
                             CategoryId = 1,
                             Description = "Portable speaker with deep bass.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161740/bluetooth_speaker_mvvzdy.png",
                             Name = "Bluetooth Speaker",
                             Price = 89.99m,
                             StockQuantity = 80
@@ -643,6 +650,7 @@ namespace NexMart.Migrations
                             Id = 8,
                             CategoryId = 1,
                             Description = "1TB storage for backups and data.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161744/external_hard_drive_slcnru.png",
                             Name = "External Hard Drive",
                             Price = 59.99m,
                             StockQuantity = 40
@@ -652,6 +660,7 @@ namespace NexMart.Migrations
                             Id = 9,
                             CategoryId = 1,
                             Description = "Capture memories in stunning detail.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161742/Digital_camera_kxhz9p.png",
                             Name = "Digital Camera",
                             Price = 349.99m,
                             StockQuantity = 15
@@ -661,6 +670,7 @@ namespace NexMart.Migrations
                             Id = 10,
                             CategoryId = 1,
                             Description = "Lightweight tablet for on-the-go use.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737163713/tablet_fjpny0.png",
                             Name = "Tablet",
                             Price = 299.99m,
                             StockQuantity = 60
@@ -670,6 +680,7 @@ namespace NexMart.Migrations
                             Id = 11,
                             CategoryId = 2,
                             Description = "100% cotton and breathable.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161746/men_s_t-shirts_sikyul.png",
                             Name = "Men's T-Shirt",
                             Price = 19.99m,
                             StockQuantity = 150
@@ -679,6 +690,7 @@ namespace NexMart.Migrations
                             Id = 12,
                             CategoryId = 2,
                             Description = "Comfortable and stylish fit.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161738/women_s_jeans_sslsjr.png",
                             Name = "Women's Jeans",
                             Price = 49.99m,
                             StockQuantity = 100
@@ -688,6 +700,7 @@ namespace NexMart.Migrations
                             Id = 13,
                             CategoryId = 2,
                             Description = "Keeps you warm in extreme cold.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161738/winter_jacket_fswhps.png",
                             Name = "Winter Jacket",
                             Price = 89.99m,
                             StockQuantity = 50
@@ -697,6 +710,7 @@ namespace NexMart.Migrations
                             Id = 14,
                             CategoryId = 2,
                             Description = "Perfect for workouts or casual wear.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161750/sports_hoodie_sjqiyv.png",
                             Name = "Sports Hoodie",
                             Price = 39.99m,
                             StockQuantity = 80
@@ -706,6 +720,7 @@ namespace NexMart.Migrations
                             Id = 15,
                             CategoryId = 2,
                             Description = "Comfortable and trendy footwear.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161749/sneakers_cibtlt.png",
                             Name = "Sneakers",
                             Price = 69.99m,
                             StockQuantity = 120
@@ -715,6 +730,7 @@ namespace NexMart.Migrations
                             Id = 16,
                             CategoryId = 2,
                             Description = "Perfect for office or events.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161745/formal_shirt_nvaxvy.png",
                             Name = "Formal Shirt",
                             Price = 29.99m,
                             StockQuantity = 100
@@ -724,6 +740,7 @@ namespace NexMart.Migrations
                             Id = 17,
                             CategoryId = 2,
                             Description = "Lightweight and flowy fabric.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161749/skirt_n5fkoc.png",
                             Name = "Skirt",
                             Price = 24.99m,
                             StockQuantity = 70
@@ -733,6 +750,7 @@ namespace NexMart.Migrations
                             Id = 18,
                             CategoryId = 2,
                             Description = "Adjustable size for comfort.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161739/Baseball_cap_ekwzf6.png",
                             Name = "Baseball Cap",
                             Price = 14.99m,
                             StockQuantity = 200
@@ -742,6 +760,7 @@ namespace NexMart.Migrations
                             Id = 19,
                             CategoryId = 2,
                             Description = "Flexible and breathable material.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161738/yoga_pants_ygvn9e.png",
                             Name = "Yoga Pants",
                             Price = 34.99m,
                             StockQuantity = 90
@@ -751,6 +770,7 @@ namespace NexMart.Migrations
                             Id = 20,
                             CategoryId = 2,
                             Description = "Durable and stylish accessory.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161746/leather_belt_ixkvgd.png",
                             Name = "Leather Belt",
                             Price = 19.99m,
                             StockQuantity = 60
@@ -760,6 +780,7 @@ namespace NexMart.Migrations
                             Id = 21,
                             CategoryId = 3,
                             Description = "Brew fresh coffee every morning with ease.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161741/coffee_maker_tm6s61.png",
                             Name = "Coffee Maker",
                             Price = 59.99m,
                             StockQuantity = 30
@@ -769,6 +790,7 @@ namespace NexMart.Migrations
                             Id = 22,
                             CategoryId = 3,
                             Description = "Perfect for smoothies, soups, and sauces.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161739/blender_hmmby2.png",
                             Name = "Blender",
                             Price = 39.99m,
                             StockQuantity = 40
@@ -778,6 +800,7 @@ namespace NexMart.Migrations
                             Id = 23,
                             CategoryId = 3,
                             Description = "Healthier frying with little to no oil.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161738/air_fryer_gtjeby.png",
                             Name = "Air Fryer",
                             Price = 89.99m,
                             StockQuantity = 25
@@ -787,6 +810,7 @@ namespace NexMart.Migrations
                             Id = 24,
                             CategoryId = 3,
                             Description = "Durable pots and pans with nonstick coating.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161747/nonstick_cookware_set_nqdtjp.png",
                             Name = "Nonstick Cookware Set",
                             Price = 99.99m,
                             StockQuantity = 15
@@ -796,6 +820,7 @@ namespace NexMart.Migrations
                             Id = 25,
                             CategoryId = 3,
                             Description = "Powerful suction for deep cleaning.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161750/vacuum_cleaner_vqrjio.png",
                             Name = "Vacuum Cleaner",
                             Price = 129.99m,
                             StockQuantity = 20
@@ -805,6 +830,7 @@ namespace NexMart.Migrations
                             Id = 26,
                             CategoryId = 3,
                             Description = "Compact and efficient heating appliance.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161746/microwave_tiyun4.png",
                             Name = "Microwave Oven",
                             Price = 149.99m,
                             StockQuantity = 10
@@ -814,6 +840,7 @@ namespace NexMart.Migrations
                             Id = 27,
                             CategoryId = 3,
                             Description = "Quickly boils water for tea or coffee.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161744/electric_kettle_oolbr4.png",
                             Name = "Electric Kettle",
                             Price = 29.99m,
                             StockQuantity = 50
@@ -823,6 +850,7 @@ namespace NexMart.Migrations
                             Id = 28,
                             CategoryId = 3,
                             Description = "Sturdy and rust-proof drying rack.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161742/dish_rack_eswuqb.png",
                             Name = "Dish Rack",
                             Price = 19.99m,
                             StockQuantity = 60
@@ -832,6 +860,7 @@ namespace NexMart.Migrations
                             Id = 29,
                             CategoryId = 3,
                             Description = "Cooks food faster and retains nutrients.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161748/pressure_cooker_uym9wi.png",
                             Name = "Pressure Cooker",
                             Price = 79.99m,
                             StockQuantity = 35
@@ -841,6 +870,7 @@ namespace NexMart.Migrations
                             Id = 30,
                             CategoryId = 3,
                             Description = "Elegant stainless steel knives and forks.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161742/cutlery_set_xlaqse.png",
                             Name = "Cutlery Set",
                             Price = 49.99m,
                             StockQuantity = 70
@@ -850,6 +880,7 @@ namespace NexMart.Migrations
                             Id = 31,
                             CategoryId = 4,
                             Description = "A bestselling page-turner full of suspense.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161744/ficiton_novel_nh0yvj.png",
                             Name = "Fiction Novel",
                             Price = 14.99m,
                             StockQuantity = 80
@@ -859,6 +890,7 @@ namespace NexMart.Migrations
                             Id = 32,
                             CategoryId = 4,
                             Description = "Motivational tips for personal growth.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161748/self-help_guide_dttosc.png",
                             Name = "Self-Help Guide",
                             Price = 19.99m,
                             StockQuantity = 50
@@ -868,6 +900,7 @@ namespace NexMart.Migrations
                             Id = 33,
                             CategoryId = 4,
                             Description = "Delicious recipes for everyday cooking.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161741/cookbook_sfzbd5.png",
                             Name = "Cookbook",
                             Price = 24.99m,
                             StockQuantity = 60
@@ -877,6 +910,7 @@ namespace NexMart.Migrations
                             Id = 34,
                             CategoryId = 4,
                             Description = "An imaginative journey across galaxies.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161749/science_fiction_epic_bvvfqi.png",
                             Name = "Science Fiction Epic",
                             Price = 29.99m,
                             StockQuantity = 40
@@ -886,6 +920,7 @@ namespace NexMart.Migrations
                             Id = 35,
                             CategoryId = 4,
                             Description = "The life story of an influential figure.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161739/biography_ybbuyj.png",
                             Name = "Biography",
                             Price = 17.99m,
                             StockQuantity = 30
@@ -895,6 +930,7 @@ namespace NexMart.Migrations
                             Id = 36,
                             CategoryId = 4,
                             Description = "Magic and heroism in an epic tale.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161744/fantasy_adventure_book_kxcpjl.png",
                             Name = "Fantasy Adventure",
                             Price = 14.99m,
                             StockQuantity = 70
@@ -904,6 +940,7 @@ namespace NexMart.Migrations
                             Id = 37,
                             CategoryId = 4,
                             Description = "A gripping whodunit with twists and turns.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161747/mystery_thriller_mpd5ru.png",
                             Name = "Mystery Thriller",
                             Price = 12.99m,
                             StockQuantity = 90
@@ -913,6 +950,7 @@ namespace NexMart.Migrations
                             Id = 38,
                             CategoryId = 4,
                             Description = "Bright and engaging stories for kids.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161741/children_s_picture_book_ph0spz.png",
                             Name = "Children's Picture Book",
                             Price = 9.99m,
                             StockQuantity = 100
@@ -922,6 +960,7 @@ namespace NexMart.Migrations
                             Id = 39,
                             CategoryId = 4,
                             Description = "Rich narratives set in the past.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161747/historical_fiction_book_rcjuad.png",
                             Name = "Historical Fiction",
                             Price = 19.99m,
                             StockQuantity = 45
@@ -931,6 +970,7 @@ namespace NexMart.Migrations
                             Id = 40,
                             CategoryId = 4,
                             Description = "Beautifully written verses to inspire.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161748/poetry_collection_tqtpbu.png",
                             Name = "Poetry Collection",
                             Price = 11.99m,
                             StockQuantity = 50
@@ -940,6 +980,7 @@ namespace NexMart.Migrations
                             Id = 41,
                             CategoryId = 5,
                             Description = "Colorful blocks to encourage creativity.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161740/building_blocks_set_j4fmvl.png",
                             Name = "Building Blocks Set",
                             Price = 24.99m,
                             StockQuantity = 50
@@ -949,6 +990,7 @@ namespace NexMart.Migrations
                             Id = 42,
                             CategoryId = 5,
                             Description = "A fun strategy game for the whole family.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161740/board_game_gbdxxp.png",
                             Name = "Board Game",
                             Price = 29.99m,
                             StockQuantity = 40
@@ -958,6 +1000,7 @@ namespace NexMart.Migrations
                             Id = 43,
                             CategoryId = 5,
                             Description = "Detailed collectible for kids and adults.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161738/action_figure_xcdiyd.png",
                             Name = "Action Figure",
                             Price = 19.99m,
                             StockQuantity = 30
@@ -967,6 +1010,7 @@ namespace NexMart.Migrations
                             Id = 44,
                             CategoryId = 5,
                             Description = "Soft and cuddly companion for children.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161750/stuffed_animal_ro8kuy.png",
                             Name = "Stuffed Animal",
                             Price = 14.99m,
                             StockQuantity = 80
@@ -976,6 +1020,7 @@ namespace NexMart.Migrations
                             Id = 45,
                             CategoryId = 5,
                             Description = "Challenging puzzles for brain exercise.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161748/puzzle_set_w2ytxm.png",
                             Name = "Puzzle Set",
                             Price = 12.99m,
                             StockQuantity = 60
@@ -985,6 +1030,7 @@ namespace NexMart.Migrations
                             Id = 46,
                             CategoryId = 5,
                             Description = "Fast and fun RC vehicle for kids.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161749/remote_control_car_gqev1c.png",
                             Name = "Remote Control Car",
                             Price = 39.99m,
                             StockQuantity = 20
@@ -994,6 +1040,7 @@ namespace NexMart.Migrations
                             Id = 47,
                             CategoryId = 5,
                             Description = "Detailed dollhouse for imaginative play.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161743/dollhouse_odfmdv.png",
                             Name = "Dollhouse",
                             Price = 49.99m,
                             StockQuantity = 15
@@ -1003,6 +1050,7 @@ namespace NexMart.Migrations
                             Id = 48,
                             CategoryId = 5,
                             Description = "Safe and durable swing for outdoor fun.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161747/outdoorswing_iowmjv.png",
                             Name = "Outdoor Swing",
                             Price = 59.99m,
                             StockQuantity = 25
@@ -1012,6 +1060,7 @@ namespace NexMart.Migrations
                             Id = 49,
                             CategoryId = 5,
                             Description = "Portable card game for travel or parties.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161741/card_game_r4rtt1.png",
                             Name = "Card Game",
                             Price = 9.99m,
                             StockQuantity = 100
@@ -1021,6 +1070,7 @@ namespace NexMart.Migrations
                             Id = 50,
                             CategoryId = 5,
                             Description = "Includes paint, brushes, and crayons.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161745/kid_s_art_kit_ekcbe8.png",
                             Name = "Kids' Art Kit",
                             Price = 19.99m,
                             StockQuantity = 50
@@ -1030,6 +1080,7 @@ namespace NexMart.Migrations
                             Id = 51,
                             CategoryId = 6,
                             Description = "Hydrates and nourishes dry skin.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161746/moisturizing_lotion_f1ljlf.png",
                             Name = "Moisturizing Lotion",
                             Price = 14.99m,
                             StockQuantity = 40
@@ -1039,6 +1090,7 @@ namespace NexMart.Migrations
                             Id = 52,
                             CategoryId = 6,
                             Description = "Brightens skin and reduces dark spots.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161737/vitamin_c_serum_ncuxbx.png",
                             Name = "Vitamin C Serum",
                             Price = 24.99m,
                             StockQuantity = 35
@@ -1048,6 +1100,7 @@ namespace NexMart.Migrations
                             Id = 53,
                             CategoryId = 6,
                             Description = "For soft and healthy hair.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161748/shampoo_conditioner_set_eo50m5.png",
                             Name = "Shampoo & Conditioner Set",
                             Price = 19.99m,
                             StockQuantity = 50
@@ -1057,6 +1110,7 @@ namespace NexMart.Migrations
                             Id = 54,
                             CategoryId = 6,
                             Description = "Provides a deep and thorough clean.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161743/electric_toothbrush_yd8jfw.png",
                             Name = "Electric Toothbrush",
                             Price = 29.99m,
                             StockQuantity = 20
@@ -1066,6 +1120,7 @@ namespace NexMart.Migrations
                             Id = 55,
                             CategoryId = 6,
                             Description = "Includes essentials for daily makeup.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161746/makeup_kit_vjinoe.png",
                             Name = "Makeup Kit",
                             Price = 49.99m,
                             StockQuantity = 25
@@ -1075,6 +1130,7 @@ namespace NexMart.Migrations
                             Id = 56,
                             CategoryId = 6,
                             Description = "Relax with soothing aromatherapy.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161744/essential_oil_diffuser_mziiyp.png",
                             Name = "Essential Oil Diffuser",
                             Price = 34.99m,
                             StockQuantity = 15
@@ -1084,6 +1140,7 @@ namespace NexMart.Migrations
                             Id = 57,
                             CategoryId = 6,
                             Description = "Tracks activity, heart rate, and sleep.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161745/fitness_tracker_hfjjg4.png",
                             Name = "Fitness Tracker",
                             Price = 59.99m,
                             StockQuantity = 30
@@ -1093,6 +1150,7 @@ namespace NexMart.Migrations
                             Id = 58,
                             CategoryId = 6,
                             Description = "Includes hydrating and purifying masks.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161744/face_mask_pack_wubexr.png",
                             Name = "Face Mask Pack",
                             Price = 12.99m,
                             StockQuantity = 70
@@ -1102,6 +1160,7 @@ namespace NexMart.Migrations
                             Id = 59,
                             CategoryId = 7,
                             Description = "Non-slip mat for yoga and exercise.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161738/yoga_pants_ygvn9e.png",
                             Name = "Yoga Mat",
                             Price = 19.99m,
                             StockQuantity = 40
@@ -1111,6 +1170,7 @@ namespace NexMart.Migrations
                             Id = 60,
                             CategoryId = 7,
                             Description = "Lightweight tent for 2 people.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161740/camping_tent_kqlfgl.png",
                             Name = "Camping Tent",
                             Price = 89.99m,
                             StockQuantity = 25
@@ -1120,6 +1180,7 @@ namespace NexMart.Migrations
                             Id = 61,
                             CategoryId = 7,
                             Description = "Durable backpack with multiple compartments.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161746/hiking_backpack_jznpao.png",
                             Name = "Hiking Backpack",
                             Price = 49.99m,
                             StockQuantity = 30
@@ -1129,6 +1190,7 @@ namespace NexMart.Migrations
                             Id = 62,
                             CategoryId = 7,
                             Description = "Telescopic fishing rod for outdoor adventures.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161744/fishing_rod_nbipzz.png",
                             Name = "Fishing Rod",
                             Price = 39.99m,
                             StockQuantity = 20
@@ -1138,6 +1200,7 @@ namespace NexMart.Migrations
                             Id = 63,
                             CategoryId = 7,
                             Description = "Official size and weight basketball.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161739/basketball_a6xgmd.png",
                             Name = "Basketball",
                             Price = 29.99m,
                             StockQuantity = 50
@@ -1147,6 +1210,7 @@ namespace NexMart.Migrations
                             Id = 64,
                             CategoryId = 7,
                             Description = "Warm and lightweight sleeping bag.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161749/sleeping_bag_mckumk.png",
                             Name = "Sleeping Bag",
                             Price = 34.99m,
                             StockQuantity = 35
@@ -1156,6 +1220,7 @@ namespace NexMart.Migrations
                             Id = 65,
                             CategoryId = 7,
                             Description = "Insulated bottle to keep drinks hot or cold.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161737/water_bottle_c5ryy9.png",
                             Name = "Water Bottle",
                             Price = 14.99m,
                             StockQuantity = 80
@@ -1165,6 +1230,7 @@ namespace NexMart.Migrations
                             Id = 66,
                             CategoryId = 7,
                             Description = "Adjustable weights for strength training.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161743/dumbbell_set_ksagsb.png",
                             Name = "Dumbbell Set",
                             Price = 59.99m,
                             StockQuantity = 15
@@ -1174,6 +1240,7 @@ namespace NexMart.Migrations
                             Id = 67,
                             CategoryId = 7,
                             Description = "Protective helmet for cycling.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161739/bicycle_helmet_amk6no.png",
                             Name = "Bicycle Helmet",
                             Price = 39.99m,
                             StockQuantity = 45
@@ -1183,6 +1250,7 @@ namespace NexMart.Migrations
                             Id = 68,
                             CategoryId = 7,
                             Description = "Lightweight poles for hiking.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161750/trekking_poles_pvlbje.png",
                             Name = "Trekking Poles",
                             Price = 24.99m,
                             StockQuantity = 50
@@ -1192,6 +1260,7 @@ namespace NexMart.Migrations
                             Id = 69,
                             CategoryId = 8,
                             Description = "Includes sponge, soap, and microfiber towel.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161741/car_wash_kit_l6rmsa.png",
                             Name = "Car Wash Kit",
                             Price = 29.99m,
                             StockQuantity = 30
@@ -1201,6 +1270,7 @@ namespace NexMart.Migrations
                             Id = 70,
                             CategoryId = 8,
                             Description = "Portable vacuum for interior cleaning.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161741/car_vauum_cleaner_aazhcv.png",
                             Name = "Car Vacuum Cleaner",
                             Price = 49.99m,
                             StockQuantity = 20
@@ -1210,6 +1280,7 @@ namespace NexMart.Migrations
                             Id = 71,
                             CategoryId = 8,
                             Description = "Energy-efficient and bright LED headlights.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161746/LED_headlights_jhsqst.png",
                             Name = "LED Headlights",
                             Price = 79.99m,
                             StockQuantity = 15
@@ -1219,6 +1290,7 @@ namespace NexMart.Migrations
                             Id = 72,
                             CategoryId = 8,
                             Description = "Compact and easy-to-use air compressor.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161750/tire_inflator_ntu5jp.png",
                             Name = "Tire Inflator",
                             Price = 39.99m,
                             StockQuantity = 25
@@ -1228,6 +1300,7 @@ namespace NexMart.Migrations
                             Id = 73,
                             CategoryId = 8,
                             Description = "Records high-definition video for safety.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161742/dashboard_camera_bp3aff.png",
                             Name = "Dashboard Camera",
                             Price = 99.99m,
                             StockQuantity = 10
@@ -1237,6 +1310,7 @@ namespace NexMart.Migrations
                             Id = 74,
                             CategoryId = 8,
                             Description = "Stylish and durable covers for car seats.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161741/car_seat_cover_set_c6h5wo.png",
                             Name = "Car Seat Cover Set",
                             Price = 59.99m,
                             StockQuantity = 18
@@ -1246,6 +1320,7 @@ namespace NexMart.Migrations
                             Id = 75,
                             CategoryId = 9,
                             Description = "Durable chew toy for dogs of all sizes.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161742/dog_chew_toy_wa5vcl.png",
                             Name = "Dog Chew Toy",
                             Price = 9.99m,
                             StockQuantity = 50
@@ -1255,6 +1330,7 @@ namespace NexMart.Migrations
                             Id = 76,
                             CategoryId = 9,
                             Description = "Sturdy post to keep your cat entertained.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161741/cat_scratching_post_if1syl.png",
                             Name = "Cat Scratching Post",
                             Price = 24.99m,
                             StockQuantity = 30
@@ -1264,6 +1340,7 @@ namespace NexMart.Migrations
                             Id = 77,
                             CategoryId = 9,
                             Description = "Non-slip bowl for feeding your pets.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161747/pet_food_bowl_tyhbdu.png",
                             Name = "Pet Food Bowl",
                             Price = 7.99m,
                             StockQuantity = 80
@@ -1273,6 +1350,7 @@ namespace NexMart.Migrations
                             Id = 78,
                             CategoryId = 9,
                             Description = "Complete kit for setting up a home aquarium.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161739/aquarium_starter_kit_vqzhea.png",
                             Name = "Aquarium Starter Kit",
                             Price = 49.99m,
                             StockQuantity = 15
@@ -1282,6 +1360,7 @@ namespace NexMart.Migrations
                             Id = 79,
                             CategoryId = 9,
                             Description = "Strong and adjustable leash for dogs.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161743/dog_leash_ywpqez.png",
                             Name = "Dog Leash",
                             Price = 14.99m,
                             StockQuantity = 60
@@ -1291,6 +1370,7 @@ namespace NexMart.Migrations
                             Id = 80,
                             CategoryId = 10,
                             Description = "Comfortable and adjustable chair for office use.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161743/ergonomic_office_chair_klsqqj.png",
                             Name = "Ergonomic Office Chair",
                             Price = 149.99m,
                             StockQuantity = 20
@@ -1300,6 +1380,7 @@ namespace NexMart.Migrations
                             Id = 81,
                             CategoryId = 10,
                             Description = "Compact and responsive keyboard-mouse combo.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161738/wireless_keyboard_and_mouse_sdrcu3.png",
                             Name = "Wireless Keyboard and Mouse",
                             Price = 39.99m,
                             StockQuantity = 35
@@ -1309,6 +1390,7 @@ namespace NexMart.Migrations
                             Id = 82,
                             CategoryId = 10,
                             Description = "Keeps your desk neat and clutter-free.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161742/desk_organizer_jrdpch.png",
                             Name = "Desk Organizer",
                             Price = 19.99m,
                             StockQuantity = 50
@@ -1318,18 +1400,10 @@ namespace NexMart.Migrations
                             Id = 83,
                             CategoryId = 10,
                             Description = "Set of 3 notebooks for work or study.",
+                            ImageUrl = "https://res.cloudinary.com/dpq83a6ds/image/upload/v1737161747/notebook_set_fw4axu.png",
                             Name = "Notebook Set",
                             Price = 12.99m,
                             StockQuantity = 60
-                        },
-                        new
-                        {
-                            Id = 84,
-                            CategoryId = 10,
-                            Description = "Adjustable lamp with LED lighting.",
-                            Name = "Office Desk Lamp",
-                            Price = 29.99m,
-                            StockQuantity = 40
                         });
                 });
 
