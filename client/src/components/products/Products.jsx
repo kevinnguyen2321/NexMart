@@ -34,7 +34,12 @@ export const Products = ({ selectedCategoryId, loggedInUser }) => {
   };
   // Giving each featured product dummy image (placeholder)//
   featuredProducts.forEach((fp) => {
-    fp.imageUrl = `https://dummyimage.com/300x200/000/fff&text=${fp.name}`;
+    if (fp.id !== 1) {
+      fp.imageUrl = `https://dummyimage.com/300x200/000/fff&text=${fp.name}`;
+    } else {
+      fp.imageUrl =
+        'https://res.cloudinary.com/dpq83a6ds/image/upload/v1737147528/smartphone_snyc32.png';
+    }
   });
 
   const handleViewBtnClick = (productId) => {
