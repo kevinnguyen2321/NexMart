@@ -15,6 +15,7 @@ import './NavBar.css';
 import { useCart } from '../context/useCart';
 import { useContext } from 'react';
 import SearchContext from '../context/SearchContextComp';
+import searchIcon from '../../assets/search.png';
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
@@ -48,7 +49,9 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
               placeholder="Search NexMart"
               onChange={handleUserSearchTypeOnChange}
             />
-            <button onClick={handleSearchBtnClick}>Search</button>
+            <button className="search-button" onClick={handleSearchBtnClick}>
+              <img src={searchIcon} alt="Search" className="search-icon" />
+            </button>
           </div>
         </div>
         <div className="right-side-wrapper">
