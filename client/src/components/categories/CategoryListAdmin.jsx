@@ -6,6 +6,9 @@ import {
 import './CategoryListAdmin.css';
 import { NewCategoryForm } from './NewCategoryForm';
 import { EditCategoryForm } from './EditCategoryForm';
+import addIcon from '../../assets/add.png';
+import editIcon from '../../assets/edit.png';
+import deleteIcon from '../../assets/delete.png';
 
 export const CategoryListAdmin = () => {
   const [categories, setCategories] = useState([]);
@@ -51,7 +54,9 @@ export const CategoryListAdmin = () => {
   return (
     <>
       <div className="category-list-wrapper">
-        <button onClick={handleAddBtnClick}>Add Category</button>
+        <button className="add-new-category-btn" onClick={handleAddBtnClick}>
+          <img className="add-new-category-icon" src={addIcon} alt="add icon" />
+        </button>
         <h2>Categories</h2>
 
         {categories.map((c) => {
@@ -60,8 +65,18 @@ export const CategoryListAdmin = () => {
               <p>
                 {c.id} .{c.name}
               </p>
-              <button onClick={() => handleEditBtnClick(c.id)}>Edit</button>
-              <button onClick={() => handleDeleteBtnClick(c)}>Delete</button>
+              <button
+                className="edit-category-btn"
+                onClick={() => handleEditBtnClick(c.id)}
+              >
+                <img src={editIcon} className="edit-category-icon" />
+              </button>
+              <button
+                className="delete-category-btn"
+                onClick={() => handleDeleteBtnClick(c)}
+              >
+                <img className="delete-category-icon" src={deleteIcon} />
+              </button>
             </div>
           );
         })}

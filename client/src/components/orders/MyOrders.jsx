@@ -54,16 +54,32 @@ export const MyOrders = ({ loggedInUser }) => {
                 <div className="order-total-wrapper">Total:${o.orderTotal}</div>
               </div>
               <div className="order-buttons-wrapper">
-                <button onClick={() => toggleOrderDetails(o.id)}>
+                <button
+                  className={
+                    selectedOrderId === o.id
+                      ? 'cancel-order-btn'
+                      : 'view-order-btn'
+                  }
+                  onClick={() => toggleOrderDetails(o.id)}
+                >
                   {selectedOrderId === o.id ? 'Close' : 'View'}
                 </button>
                 {!o.isCanceled && (
-                  <button onClick={() => handleCancelBtnClick(o.id)}>
+                  <button
+                    className="cancel-order-btn"
+                    onClick={() => handleCancelBtnClick(o.id)}
+                  >
                     Cancel Order
                   </button>
                 )}
               </div>
-              {selectedOrderId === o.id && <OrderDetails orderId={o.id} />}
+              <div
+                className={`order-details-wrapper ${
+                  selectedOrderId === o.id ? 'open' : ''
+                }`}
+              >
+                {selectedOrderId === o.id && <OrderDetails orderId={o.id} />}
+              </div>
             </div>
           );
         })}

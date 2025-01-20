@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './NewCategoryForm.css';
 import { addNewCategory } from '../../managers/categoryManager';
+import closeIcon from '../../assets/close.png';
 
 export const NewCategoryForm = ({
   isNewCategoryFormOpen,
@@ -30,6 +31,15 @@ export const NewCategoryForm = ({
   return (
     <div className={`category-modal ${isNewCategoryFormOpen ? 'open' : ''}`}>
       <div className="category-modal-content">
+        <div className="close-category-modal-wrapper">
+          <button
+            className="close-add-new-category-btn"
+            type="button"
+            onClick={onClose}
+          >
+            <img className="close-category-modal-icon" src={closeIcon} />
+          </button>
+        </div>
         <h2>Add New Category</h2>
         <form>
           <label>
@@ -38,10 +48,11 @@ export const NewCategoryForm = ({
           </label>
 
           <div className="category-modal-actions">
-            <button type="button" onClick={onClose}>
-              Close
-            </button>
-            <button onClick={handleSubmitBtnClick} type="submit">
+            <button
+              className="submit-new-category-btn"
+              onClick={handleSubmitBtnClick}
+              type="submit"
+            >
               Submit
             </button>
           </div>

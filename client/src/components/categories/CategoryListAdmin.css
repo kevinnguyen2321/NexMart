@@ -1,14 +1,43 @@
 .category-list-wrapper {
-  border: solid black;
-  width: 40%;
-  margin: 150px auto 0 auto;
+  box-shadow: rgba(46, 44, 44, 0.418) 0px 5px 15px;
+  width: 30%;
+  margin: 80px auto 0 auto;
   text-align: center;
+  border-radius: 15px;
+  padding: 15px;
 }
 
 .category-list-card {
   border-bottom: 1px solid black;
   display: flex;
   gap: 15px;
+}
+
+.add-new-category-btn,
+.edit-category-btn,
+.delete-category-btn {
+  background: none;
+  border: none;
+  transition: transform 0.3s ease-in;
+  margin-bottom: 15px;
+}
+
+.add-new-category-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.add-new-category-btn:hover,
+.edit-category-btn:hover,
+.delete-category-btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.edit-category-icon,
+.delete-category-icon {
+  width: 25px;
+  height: 25px;
 }
 
 /* MEDIA QUERIES */
