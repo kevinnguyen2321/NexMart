@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './NewProductForm.css';
 import { getProductById } from '../../managers/productManager';
+import closeIcon from '../../assets/close.png';
 
 export const ProductDetails = ({
   isProductDetailsOpen,
@@ -16,6 +17,11 @@ export const ProductDetails = ({
   return (
     <div className={`modal ${isProductDetailsOpen ? 'open' : ''}`}>
       <div className="modal-content">
+        <div className="modal-actions">
+          <button className="close-product-btn" type="button" onClick={onClose}>
+            <img className="red-x-icon" src={closeIcon} />
+          </button>
+        </div>
         <div>
           <h4>{product.name}</h4>
           <p>${product.price}</p>
@@ -34,11 +40,6 @@ export const ProductDetails = ({
             <span>Description: </span>
             {product.description}
           </p>
-        </div>
-        <div className="modal-actions">
-          <button type="button" onClick={onClose}>
-            Close
-          </button>
         </div>
       </div>
     </div>

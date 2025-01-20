@@ -15,6 +15,9 @@ import './NavBar.css';
 import { useCart } from '../context/useCart';
 import { useContext } from 'react';
 import SearchContext from '../context/SearchContextComp';
+import searchIcon from '../../assets/search.png';
+import cartIcon from '../../assets/cart.png';
+import nextMartIcon from '../../assets/logo-no-text.png';
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
@@ -41,6 +44,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
         <div className="left-side-wrapper">
           <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
             NexMart
+            <img className="nexMart-logo" src={nextMartIcon} />
           </NavbarBrand>
           <div className="search-bar-wrapper">
             <input
@@ -48,7 +52,9 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
               placeholder="Search NexMart"
               onChange={handleUserSearchTypeOnChange}
             />
-            <button onClick={handleSearchBtnClick}>Search</button>
+            <button className="search-button" onClick={handleSearchBtnClick}>
+              <img src={searchIcon} alt="Search" className="search-icon" />
+            </button>
           </div>
         </div>
         <div className="right-side-wrapper">
@@ -129,7 +135,8 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
             )}
             <NavItem>
               <NavLink className="cart-link" tag={RRNavLink} to="/cart">
-                Cart({getTotalItemsInCart()})
+                <img src={cartIcon} />
+                <p className="cart-item-total">({getTotalItemsInCart()})</p>
               </NavLink>
             </NavItem>
           </div>

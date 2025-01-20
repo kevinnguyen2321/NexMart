@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { editCategory, getCategoryById } from '../../managers/categoryManager';
+import closeIcon from '../../assets/close.png';
 
 export const EditCategoryForm = ({
   isEditCategoryFormOpen,
@@ -35,6 +36,15 @@ export const EditCategoryForm = ({
   return (
     <div className={`category-modal ${isEditCategoryFormOpen ? 'open' : ''}`}>
       <div className="category-modal-content">
+        <div className="close-category-modal-wrapper">
+          <button
+            className="close-add-new-category-btn"
+            type="button"
+            onClick={onClose}
+          >
+            <img className="close-category-modal-icon" src={closeIcon} />
+          </button>
+        </div>
         <h2>Edit Category</h2>
         <form>
           <label>
@@ -48,10 +58,11 @@ export const EditCategoryForm = ({
           </label>
 
           <div className="category-modal-actions">
-            <button type="button" onClick={onClose}>
-              Close
-            </button>
-            <button onClick={handleSaveBtnClick} type="submit">
+            <button
+              className="submit-new-category-btn"
+              onClick={handleSaveBtnClick}
+              type="submit"
+            >
               Save
             </button>
           </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './NewProductForm.css';
 import { getAllCategories } from '../../managers/categoryManager';
 import { addNewProduct } from '../../managers/productManager';
+import closeIcon from '../../assets/close.png';
 
 export const NewProductForm = ({ isNewProductFormOpen, onClose }) => {
   const [product, setProduct] = useState({});
@@ -40,6 +41,15 @@ export const NewProductForm = ({ isNewProductFormOpen, onClose }) => {
   return (
     <div className={`modal ${isNewProductFormOpen ? 'open' : ''}`}>
       <div className="modal-content">
+        <div className="close-add-product-btn-wrapper">
+          <button
+            className="close-add-product-modal-btn"
+            type="button"
+            onClick={onClose}
+          >
+            <img className="x-icon-close-add-product-img" src={closeIcon} />
+          </button>
+        </div>
         <h2>Add New Product</h2>
         <form>
           <label>
@@ -81,10 +91,11 @@ export const NewProductForm = ({ isNewProductFormOpen, onClose }) => {
           </label>
 
           <div className="modal-actions">
-            <button type="button" onClick={onClose}>
-              Close
-            </button>
-            <button type="submit" onClick={handleSubmitBtnClick}>
+            <button
+              className="submit-new-product-btn"
+              type="submit"
+              onClick={handleSubmitBtnClick}
+            >
               Submit
             </button>
           </div>

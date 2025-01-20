@@ -3,6 +3,7 @@ import { useCart } from '../context/useCart';
 import './Cart.css';
 import { placeOrder } from '../../managers/orderManager';
 import { useNavigate } from 'react-router-dom';
+import deleteIcon from '../../assets/delete.png';
 
 export const Cart = ({ loggedInUser }) => {
   const [order, setOrder] = useState({
@@ -62,10 +63,18 @@ export const Cart = ({ loggedInUser }) => {
         return (
           <div className="order-product" key={op.productId}>
             <p>{product?.name}</p>
+            <img className="my-cart-product-img" src={product?.imageUrl} />
             <p>Quantity: {op.quantity}</p>
             {product && <p>Product Total: ${productTotal?.toFixed(2)}</p>}
-            <button onClick={() => handleRemoveBtnClick(op.productId)}>
-              Remove from cart
+            <button
+              className="remove-product-cart-btn"
+              onClick={() => handleRemoveBtnClick(op.productId)}
+            >
+              <img
+                className="remove-product-cart-icon"
+                src={deleteIcon}
+                alt="delete"
+              />
             </button>
           </div>
         );
@@ -75,7 +84,12 @@ export const Cart = ({ loggedInUser }) => {
           Order Total:<span> ${orderTotal.toFixed(2)}</span>
         </h2>
         {order.orderProductsFromCart.length > 0 && (
-          <button onClick={handlePlaceOrderBtnClick}>Place Order</button>
+          <button
+            className="place-order-btn"
+            onClick={handlePlaceOrderBtnClick}
+          >
+            Place Order
+          </button>
         )}
       </div>
     </div>

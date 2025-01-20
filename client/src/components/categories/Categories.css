@@ -1,14 +1,20 @@
 .category-wrapper {
-  border: solid black;
+  border-bottom: 1px solid black;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: relative;
+  background-color: rgb(95, 175, 240);
+  color: whitesmoke;
 }
 
 .category-dropdown {
   margin-top: 5px;
   cursor: pointer;
+}
+
+.category-dropdown p:hover {
+  color: rgb(255, 255, 3);
 }
 
 .category-dropdown-menu {
@@ -17,9 +23,11 @@
   top: 100%;
   left: 15px;
   background-color: white;
-  border: solid black;
+
+  border-radius: 10px;
   z-index: 10;
   padding: 10px;
+  color: black;
 }
 
 .category-dropdown-menu ul {
@@ -38,7 +46,6 @@
 }
 
 .display-categories-wrapper ul {
-  /* border: solid black; */
   display: flex;
   width: 100%;
   list-style: none;
@@ -50,11 +57,14 @@
   cursor: pointer;
 }
 
+.display-categories-wrapper li:hover {
+  color: rgb(255, 255, 3);
+}
+
 /* MEDIA QUERIES */
 /* Small Mobile (Up to 320px) */
 @media (max-width: 320px) {
   .category-wrapper {
-    border: solid yellow;
     flex-direction: column;
   }
 
@@ -70,7 +80,6 @@
 /* Mobile (321px - 480px) */
 @media (min-width: 321px) and (max-width: 480px) {
   .category-wrapper {
-    /* border: solid yellow; */
     flex-direction: column;
   }
 
@@ -86,7 +95,6 @@
 /* Large Mobile / Small Tablets (481px - 767px) */
 @media (min-width: 481px) and (max-width: 767px) {
   .category-wrapper {
-    /* border: solid yellow; */
     flex-direction: column;
   }
 
@@ -102,7 +110,6 @@
 /* Tablets (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .category-wrapper {
-    /* border: solid yellow; */
     flex-direction: column;
   }
 
@@ -117,14 +124,9 @@
 
 /* Laptops (1025px - 1366px) */
 @media (min-width: 1025px) and (max-width: 1366px) {
-  .category-wrapper {
-    /* border: solid yellow; */
-  }
-
   .display-categories-wrapper ul {
-    /* border: solid yellow; */
     gap: 80px;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 
   .category-dropdown-menu {

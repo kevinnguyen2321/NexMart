@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getAllCategories } from '../../managers/categoryManager';
 import { editProduct, getProductById } from '../../managers/productManager';
 import { useNavigate } from 'react-router-dom';
+import closeIcon from '../../assets/close.png';
 
 export const EditProductForm = ({
   isEditProductModalOpen,
@@ -53,6 +54,15 @@ export const EditProductForm = ({
   return (
     <div className={`modal ${isEditProductModalOpen ? 'open' : ''}`}>
       <div className="modal-content">
+        <div className="close-add-product-btn-wrapper">
+          <button
+            className="close-add-product-modal-btn"
+            type="button"
+            onClick={onClose}
+          >
+            <img className="x-icon-close-add-product-img" src={closeIcon} />
+          </button>
+        </div>
         <h2>Edit Product</h2>
         <form>
           <label>
@@ -118,10 +128,11 @@ export const EditProductForm = ({
           </label>
 
           <div className="modal-actions">
-            <button type="button" onClick={onClose}>
-              Close
-            </button>
-            <button type="submit" onClick={handleSubmitBtnClick}>
+            <button
+              className="submit-new-product-btn"
+              type="submit"
+              onClick={handleSubmitBtnClick}
+            >
               Save
             </button>
           </div>

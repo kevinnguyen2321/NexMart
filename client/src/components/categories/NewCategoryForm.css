@@ -29,5 +29,27 @@
 .category-modal-actions {
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.close-category-modal-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-add-new-category-btn {
+  background: none;
+  border: none;
+}
+
+.close-category-modal-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.submit-new-category-btn {
+  background-color: rgb(34, 218, 34);
+  color: white;
+  border: solid white;
+  padding: 5px 10px 5px 10px;
 }
