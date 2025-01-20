@@ -4,6 +4,10 @@ import './ProductsListAdmin.css';
 import { NewProductForm } from './NewProductForm';
 import { ProductDetails } from './ProductDetails';
 import { EditProductForm } from './EditProductForm';
+import addIcon from '../../assets/add.png';
+import viewIcon from '../../assets/view.png';
+import editIcon from '../../assets/edit.png';
+import deleteIcon from '../../assets/delete.png';
 
 export const ProductsListAdmin = () => {
   const [products, setProducts] = useState([]);
@@ -61,11 +65,17 @@ export const ProductsListAdmin = () => {
   return (
     <div>
       <div className="products-list-wrapper">
-        <div>
-          <button onClick={handleAddBtnClick}>Add new product</button>
-        </div>
         <div className="products-wrapper-admin">
+          <div className="plus-icon-btn-wrapper">
+            <button
+              className="add-product-admin-btn"
+              onClick={handleAddBtnClick}
+            >
+              <img className="add-new-product-icon" src={addIcon} />
+            </button>
+          </div>
           <h3>Products</h3>
+
           {products.map((p) => {
             return (
               <div className="product-list-card" key={p.id}>
@@ -84,14 +94,23 @@ export const ProductsListAdmin = () => {
                   </p>
                 </div>
                 <div className="product-list-btn-wrapper">
-                  <button onClick={() => handleProductDetailsToggle(p.id)}>
-                    View
+                  <button
+                    className="view-product-btn-admin"
+                    onClick={() => handleProductDetailsToggle(p.id)}
+                  >
+                    <img src={viewIcon} className="view-product-admin-image" />
                   </button>
-                  <button onClick={() => handleEditProductToggle(p.id)}>
-                    Edit
+                  <button
+                    className="edit-product-button"
+                    onClick={() => handleEditProductToggle(p.id)}
+                  >
+                    <img className="edit-product-image" src={editIcon} />
                   </button>
-                  <button onClick={() => handleDeleteBtnClick(p)}>
-                    Delete
+                  <button
+                    className="delete-product-btn"
+                    onClick={() => handleDeleteBtnClick(p)}
+                  >
+                    <img className="delete-product-image" src={deleteIcon} />
                   </button>
                 </div>
               </div>

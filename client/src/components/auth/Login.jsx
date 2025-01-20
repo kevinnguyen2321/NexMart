@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../../managers/authManager';
 import { Button, FormFeedback, FormGroup, Input, Label } from 'reactstrap';
+import './Login.css';
+import nexMartLogo from '../../assets/nexMart-logo-main.png';
 
 export default function Login({ setLoggedInUser }) {
   const navigate = useNavigate();
@@ -23,6 +25,13 @@ export default function Login({ setLoggedInUser }) {
 
   return (
     <div className="container" style={{ maxWidth: '500px' }}>
+      <div className="logo-wrapper">
+        <img
+          className="nexMart-logo-login"
+          src={nexMartLogo}
+          alt="nex-mart-logo"
+        />
+      </div>
       <h3>Login</h3>
       <FormGroup>
         <Label>Email</Label>

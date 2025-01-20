@@ -1,16 +1,17 @@
 .orders-wrapper {
-  border: solid black;
-  margin: 150px auto 0 auto;
+  margin: 45px auto 0 auto;
   width: 60%;
 }
 
 .order-card {
-  border: solid pink;
-  font-size: 2.2rem;
+  box-shadow: rgba(46, 44, 44, 0.418) 0.4px 0.5px 3px;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  padding: 12px;
 }
 
 .order-date-wrapper {
-  width: 35%;
+  width: 33%;
   /* border: solid black; */
 }
 
@@ -26,14 +27,12 @@
   align-items: center;
 }
 
-.order-date-text-wrapper {
-  /* border: solid black; */
+.all-orders-header {
+  margin-top: 15px;
+  text-align: center;
 }
 
 .order-buttons-wrapper {
-  /* border: solid black; */
-  /* display: flex;
-  justify-content: center; */
   margin-left: 15px;
 }
 
@@ -43,20 +42,68 @@
 }
 
 .order-details {
-  border-top: solid black;
+  border-top: 1px solid black;
+  margin-top: 8px;
 }
 
 .order-details-product-list {
-  /* border: solid black; */
   list-style: none;
   font-size: 1.3rem;
+}
+
+.order-details-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.order-details-wrapper.open {
+  max-height: 500px; /* Adjust this value based on the content height */
+  padding: 10px 0; /* Optional: Add padding when expanded */
+}
+
+.order-image {
+  /* border: solid black; */
+  width: 150px;
+  height: 150px;
+}
+
+.order-list-item {
+  /* border: solid black; */
+  display: flex;
+  flex-direction: column;
+}
+
+.view-order-btn {
+  background-color: rgb(20, 185, 20);
+  color: white;
+  border: solid white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 8px;
+}
+
+.cancel-order-btn {
+  background-color: red;
+  color: white;
+  border: solid white;
+  padding: 5px 8px 5px 8px;
+  border-radius: 8px;
+}
+
+.view-order-btn,
+.cancel-order-btn {
+  transition: transform 0.5s ease-out;
+}
+
+.view-order-btn:hover,
+.cancel-order-btn:hover {
+  transform: scale(1.2);
 }
 
 /* MEDIA QUERIES */
 /* Small Mobile (Up to 320px) */
 @media (max-width: 320px) {
   .orders-wrapper {
-    /* border: solid yellow; */
     width: 100%;
     text-align: center;
     margin-top: 0;
@@ -69,11 +116,9 @@
   .order-date-wrapper {
     width: 100%;
     font-size: 1.2rem;
-    /* border: solid black; */
   }
 
   .order-total-wrapper {
-    /* border: solid black; */
     width: 100%;
   }
 }
@@ -81,7 +126,6 @@
 /* Mobile (321px - 480px) */
 @media (min-width: 321px) and (max-width: 480px) {
   .orders-wrapper {
-    /* border: solid yellow; */
     width: 100%;
     text-align: center;
     margin-top: 0;
@@ -94,11 +138,9 @@
   .order-date-wrapper {
     width: 100%;
     font-size: 1.2rem;
-    /* border: solid black; */
   }
 
   .order-total-wrapper {
-    /* border: solid black; */
     width: 100%;
   }
 }
@@ -106,7 +148,6 @@
 /* Large Mobile / Small Tablets (481px - 767px) */
 @media (min-width: 481px) and (max-width: 767px) {
   .orders-wrapper {
-    /* border: solid yellow; */
     width: 100%;
     text-align: center;
     margin-top: 0;
@@ -118,11 +159,9 @@
 
   .order-date-wrapper {
     width: 100%;
-    /* border: solid black; */
   }
 
   .order-total-wrapper {
-    /* border: solid black; */
     width: 100%;
   }
 }
@@ -130,7 +169,6 @@
 /* Tablets (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .orders-wrapper {
-    /* border: solid yellow; */
     width: 100%;
     text-align: center;
     margin-top: 0;
@@ -142,11 +180,9 @@
 
   .order-date-wrapper {
     width: 100%;
-    /* border: solid black; */
   }
 
   .order-total-wrapper {
-    /* border: solid black; */
     width: 100%;
   }
 }
@@ -154,7 +190,6 @@
 /* Laptops (1025px - 1366px) */
 @media (min-width: 1025px) and (max-width: 1366px) {
   .orders-wrapper {
-    /* border: solid yellow; */
     width: 100%;
     text-align: center;
     margin-top: 0;
@@ -166,11 +201,9 @@
 
   .order-date-wrapper {
     width: 100%;
-    /* border: solid black; */
   }
 
   .order-total-wrapper {
-    /* border: solid black; */
     width: 100%;
   }
 }

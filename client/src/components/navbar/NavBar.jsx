@@ -17,6 +17,7 @@ import { useContext } from 'react';
 import SearchContext from '../context/SearchContextComp';
 import searchIcon from '../../assets/search.png';
 import cartIcon from '../../assets/cart.png';
+import nextMartIcon from '../../assets/logo-no-text.png';
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
@@ -43,6 +44,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
         <div className="left-side-wrapper">
           <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
             NexMart
+            <img className="nexMart-logo" src={nextMartIcon} />
           </NavbarBrand>
           <div className="search-bar-wrapper">
             <input

@@ -1,0 +1,18 @@
+.container {
+  /* border: solid black; */
+  margin: 100px auto 0 auto;
+  box-shadow: rgba(46, 44, 44, 0.418) 0px 5px 15px;
+  border-radius: 15px;
+  padding: 12px;
+}
+
+.logo-wrapper {
+  width: 100%;
+
+  text-align: center;
+}
+
+.nexMart-logo-login {
+  width: 200px;
+  height: 200px;
+}

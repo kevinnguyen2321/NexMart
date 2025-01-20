@@ -1,5 +1,4 @@
 .products-list-wrapper {
-  /* border: solid black; */
   margin: 100px auto 0 auto;
   width: 100%;
   text-align: center;
@@ -18,7 +17,6 @@
 }
 
 .product-list-card-info {
-  /* border: solid yellow; */
   display: flex;
   gap: 15px;
   width: 60%;
@@ -29,10 +27,41 @@
 }
 
 .product-list-btn-wrapper {
-  /* border: solid black; */
   display: flex;
   justify-content: space-evenly;
   width: 25%;
+}
+
+.plus-icon-btn-wrapper {
+  margin-bottom: 20px;
+}
+
+.add-product-admin-btn,
+.view-product-btn-admin,
+.edit-product-button,
+.delete-product-btn {
+  border: none;
+  background: none;
+  transition: transform 0.5s ease-in;
+}
+
+.add-product-admin-btn:hover,
+.view-product-btn-admin:hover,
+.edit-product-button:hover,
+.delete-product-btn:hover {
+  transform: scale(1.2);
+}
+
+.add-new-product-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.view-product-admin-image,
+.edit-product-image,
+.delete-product-image {
+  width: 30px;
+  height: 30px;
 }
 
 /* MEDIA QUERIES */
@@ -46,23 +75,20 @@
   }
 
   .products-wrapper-admin h3 {
-    /* border: solid blue; */
     margin-bottom: 45px;
   }
   .product-list-card {
     flex-direction: column;
-    /* border: solid yellow; */
   }
 
   .product-list-card-info {
     margin-left: 5px;
     width: 100%;
-    /* border: solid pink; */
+
     flex-direction: column;
   }
 
   .product-list-btn-wrapper {
-    /* border: solid green; */
     width: 100%;
     justify-content: center;
     gap: 8px;
@@ -79,23 +105,20 @@
     font-size: 0.8rem;
   }
   .products-wrapper-admin h3 {
-    /* border: solid blue; */
     margin-bottom: 45px;
   }
   .product-list-card {
     flex-direction: column;
-    /* border: solid yellow; */
+
     justify-content: center;
     align-items: center;
   }
 
   .product-list-card-info {
-    /* border: solid pink; */
     width: 100%;
   }
 
   .product-list-btn-wrapper {
-    /* border: solid green; */
     width: 100%;
     justify-content: center;
     gap: 8px;
@@ -112,18 +135,16 @@
     font-size: 1rem;
   }
   .products-wrapper-admin h3 {
-    /* border: solid blue; */
     margin-bottom: 45px;
   }
   .product-list-card {
     flex-direction: column;
-    /* border: solid yellow; */
+
     justify-content: center;
     align-items: center;
   }
 
   .product-list-btn-wrapper {
-    /* border: solid green; */
     width: 100%;
     justify-content: center;
     gap: 8px;
@@ -141,25 +162,22 @@
   }
 
   .products-wrapper-admin h3 {
-    /* border: solid blue; */
     margin-bottom: 45px;
   }
   .product-list-card {
     flex-direction: column;
-    /* border: solid yellow; */
+
     justify-content: center;
     align-items: center;
   }
 
   .product-list-card-info {
-    /* border: solid pink; */
     width: 100%;
     justify-content: center;
     gap: 25px;
   }
 
   .product-list-btn-wrapper {
-    /* border: solid green; */
     width: 100%;
     justify-content: center;
     gap: 8px;

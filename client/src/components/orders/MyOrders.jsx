@@ -48,7 +48,7 @@ export const MyOrders = ({ loggedInUser }) => {
               <div className="order-date-text-wrapper">
                 {o.isCanceled && <div>(Order Canceled)</div>}
                 <div>Order Id: {o.id}</div>
-                <div className="order-date-wrapper">
+                <div className="my-order-date-wrapper">
                   Order Date:{formatDate(o.orderDate)}
                 </div>
                 <div className="order-total-wrapper">Total:${o.orderTotal}</div>

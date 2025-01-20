@@ -21,6 +21,13 @@
   color: rgb(255, 255, 3);
 }
 
+.nexMart-logo {
+  width: 50px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+}
+
 .left-side-wrapper {
   /* border: solid black; */
   width: 100%;
@@ -77,7 +84,6 @@
   display: flex;
   align-items: center;
 }
-
 
 .cart-link {
   display: flex;

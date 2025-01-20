@@ -17,13 +17,14 @@ export const OrderDetails = ({ orderId, loggedInUser }) => {
     <div className="order-details">
       <h4>Order Details (Order {orderId})</h4>
       {loggedInUser?.roles.includes('Admin') && (
-        <p>Customer Name:{orderDetails.userProfile.fullName}</p>
+        <p>Customer Name: {orderDetails.userProfile.fullName}</p>
       )}
       <ul className="order-details-product-list">
         {orderDetails.orderProducts.map((product) => (
-          <li key={product.id}>
+          <li className="order-list-item" key={product.id}>
             {product.product.name} - Quantity: {product.quantity} - ($
             {product.productTotal})
+            <img className="order-image" src={product.product.imageUrl} />
           </li>
         ))}
       </ul>
