@@ -16,6 +16,7 @@ import { useCart } from '../context/useCart';
 import { useContext } from 'react';
 import SearchContext from '../context/SearchContextComp';
 import searchIcon from '../../assets/search.png';
+import cartIcon from '../../assets/cart.png';
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
@@ -132,7 +133,8 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
             )}
             <NavItem>
               <NavLink className="cart-link" tag={RRNavLink} to="/cart">
-                Cart({getTotalItemsInCart()})
+                <img src={cartIcon} />
+                <p className="cart-item-total">({getTotalItemsInCart()})</p>
               </NavLink>
             </NavItem>
           </div>

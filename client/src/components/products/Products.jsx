@@ -3,6 +3,8 @@ import { getAllProducts } from '../../managers/productManager';
 import './Products.css';
 import { ProductDetails } from './ProductDetails';
 import { useCart } from '../context/useCart';
+import viewProductIcon from '../../assets/view.png';
+import addToCartIcon from '../../assets/cartAdd.png';
 
 export const Products = ({ selectedCategoryId, loggedInUser }) => {
   const [products, setProducts] = useState([]);
@@ -60,11 +62,25 @@ export const Products = ({ selectedCategoryId, loggedInUser }) => {
               <img src={product.imageUrl} alt={product.name} />
               <p>${product.price.toFixed(2)}</p>
               <div className="feature-product-button-wrapper">
-                <button onClick={() => handleViewBtnClick(product.id)}>
-                  View
+                <button
+                  className="view-btn"
+                  onClick={() => handleViewBtnClick(product.id)}
+                >
+                  <img
+                    className="view-item-icon"
+                    src={viewProductIcon}
+                    alt="view icon"
+                  />
                 </button>
-                <button onClick={() => addItemToCart(product)}>
-                  Add to cart
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() => addItemToCart(product)}
+                >
+                  <img
+                    className="add-item-icon"
+                    src={addToCartIcon}
+                    alt="add item to cart icon"
+                  />
                 </button>
               </div>
             </div>

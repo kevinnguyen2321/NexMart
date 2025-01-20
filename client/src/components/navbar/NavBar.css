@@ -1,3 +1,8 @@
+.main-navbar-wrapper {
+  /* border: solid black; */
+  padding: 8px;
+}
+
 .mr-auto,
 .orders-link,
 .products-link,
@@ -69,8 +74,22 @@
 
 .cart-link-wrapper {
   list-style: none;
-  /* border: solid yellow; */
   display: flex;
+  align-items: center;
+}
+
+
+.cart-link {
+  display: flex;
+  align-items: center; /* Ensures icon and text are aligned */
+  transition: transform 0.3s ease-in-out;
+}
+.cart-link:hover {
+  transform: scale(1.2);
+}
+.cart-link img {
+  width: 30px;
+  height: 30px;
 }
 
 /* MEDIA QUERIES */
