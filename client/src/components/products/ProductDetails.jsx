@@ -16,7 +16,7 @@ export const ProductDetails = ({
 
   return (
     <div className={`modal ${isProductDetailsOpen ? 'open' : ''}`}>
-      <div className="modal-content">
+      <div className="modal-content product-details">
         <div className="modal-actions">
           <button className="close-product-btn" type="button" onClick={onClose}>
             <img className="red-x-icon" src={closeIcon} />
