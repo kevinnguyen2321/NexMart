@@ -8,6 +8,7 @@ import addIcon from '../../assets/add.png';
 import viewIcon from '../../assets/view.png';
 import editIcon from '../../assets/edit.png';
 import deleteIcon from '../../assets/delete.png';
+import dropdownArrowIcon from '../../assets/dropdown.png';
 
 export const ProductsListAdmin = () => {
   const [products, setProducts] = useState([]);
@@ -15,6 +16,44 @@ export const ProductsListAdmin = () => {
   const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false);
   const [isEditProductModalOpen, setIsEditProductModalOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
+  const [productKeyword, setProductKeyword] = useState('');
+  const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
+  const [sortOption, setSortOption] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    getAllProductsAndSetProducts();
+  }, []);
+
+  useEffect(() => {
+    let updatedProducts = products;
+
+    // Filter by keyword
+    if (productKeyword) {
+      updatedProducts = updatedProducts.filter(
+        (product) =>
+          product.name &&
+          product.name.toLowerCase().includes(productKeyword.toLowerCase())
+      );
+    }
+
+    // Sort products based on the selected sort option
+    if (sortOption === 'low-to-high') {
+      updatedProducts = [...updatedProducts].sort((a, b) => a.price - b.price);
+    } else if (sortOption === 'high-to-low') {
+      updatedProducts = [...updatedProducts].sort((a, b) => b.price - a.price);
+    } else if (sortOption === 'low-stock') {
+      updatedProducts = [...updatedProducts].sort(
+        (a, b) => a.stockQuantity - b.stockQuantity
+      );
+    } else if (sortOption === 'high-stock') {
+      updatedProducts = [...updatedProducts].sort(
+        (a, b) => b.stockQuantity - a.stockQuantity
+      );
+    }
+
+    setFilteredProducts(updatedProducts);
+  }, [productKeyword, sortOption, products]);
 
   const getAllProductsAndSetProducts = () => {
     getAllProducts().then((data) => setProducts(data));
@@ -58,25 +97,92 @@ export const ProductsListAdmin = () => {
     }
   };
 
-  useEffect(() => {
-    getAllProductsAndSetProducts();
-  }, []);
+  const handleSearchChange = (e) => {
+    setProductKeyword(e.target.value);
+  };
+
+  const toggleSortDropdown = () => {
+    setIsSortDropdownOpen((prev) => !prev);
+  };
+
+  const handleSortOptionChange = (option) => {
+    setSortOption(option);
+    setIsSortDropdownOpen(false); // Close dropdown after selection
+  };
+
+  const handleClearFilter = () => {
+    setProductKeyword('');
+    setSortOption('');
+  };
 
   return (
-    <div>
+    <div className="main-admin-products-list-wrapper">
       <div className="products-list-wrapper">
         <div className="products-wrapper-admin">
           <div className="plus-icon-btn-wrapper">
-            <button
-              className="add-product-admin-btn"
-              onClick={handleAddBtnClick}
-            >
-              <img className="add-new-product-icon" src={addIcon} />
-            </button>
+            <div className="product-filter-wrapper">
+              <div className="left-side-search">
+                <input
+                  onChange={handleSearchChange}
+                  type="search"
+                  placeholder="Search for products..."
+                />
+                <div className="sort-products-admin-wrapper ">
+                  <p onClick={toggleSortDropdown} className="sort-toggle">
+                    Sort By{' '}
+                    <img
+                      className="drop-down-icon"
+                      src={dropdownArrowIcon}
+                      alt="Sort Arrow"
+                    />
+                  </p>
+
+                  {isSortDropdownOpen && (
+                    <div className="sort-dropdown-for-products">
+                      <button
+                        onClick={() => handleSortOptionChange('low-to-high')}
+                      >
+                        Price: Low to High
+                      </button>
+                      <button
+                        onClick={() => handleSortOptionChange('high-to-low')}
+                      >
+                        Price: High to Low
+                      </button>
+                      <button
+                        onClick={() => handleSortOptionChange('low-stock')}
+                      >
+                        Stock: Low to High
+                      </button>
+                      <button
+                        onClick={() => handleSortOptionChange('high-stock')}
+                      >
+                        Stock: High to Low
+                      </button>
+                    </div>
+                  )}
+                  <button
+                    onClick={handleClearFilter}
+                    className="clear-filter-button"
+                  >
+                    Clear Filter
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <button
+                  className="add-product-admin-btn"
+                  onClick={handleAddBtnClick}
+                >
+                  <img className="add-new-product-icon" src={addIcon} />
+                </button>
+              </div>
+            </div>
           </div>
           <h3>Products</h3>
 
-          {products.map((p) => {
+          {filteredProducts.map((p) => {
             return (
               <div className="product-list-card" key={p.id}>
                 <div className="product-list-card-info">

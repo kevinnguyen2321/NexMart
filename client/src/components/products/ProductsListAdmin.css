@@ -1,12 +1,74 @@
+.main-admin-products-list-wrapper {
+  border: solid blue;
+  display: flex;
+}
+
 .products-list-wrapper {
-  margin: 100px auto 0 auto;
+  margin: 0px auto 0 auto;
   width: 100%;
   text-align: center;
+  /* border: solid black; */
+}
+
+.product-filter-wrapper {
+  /* border: solid rgb(230, 49, 18); */
+  display: flex;
+  align-items: center;
+
+  width: 80%;
+  justify-content: space-around;
+  margin: 0 auto 0 auto;
+}
+
+.left-side-search {
+  /* border: solid black; */
+  width: 30%;
+}
+
+.left-side-search input {
+  width: 80%;
+  margin-top: 8px;
+}
+.sort-products-admin-wrapper {
+  /* margin: 15px auto 0 auto; */
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  /* border: solid green; */
+  gap: 8px;
+}
+
+.sort-dropdown-for-products {
+  position: absolute;
+  top: 60%;
+  left: 120px;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  width: 40%;
+}
+
+.sort-dropdown-for-products button {
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sort-dropdown-for-products button:hover {
+  background-color: #f0f0f0;
 }
 
 .products-wrapper-admin {
   width: 100%;
-  margin: 25px auto 0 auto;
+  margin: 0 auto 0 auto;
+  border: solid green;
 }
 
 .product-list-card {
@@ -62,6 +124,26 @@
 .delete-product-image {
   width: 30px;
   height: 30px;
+}
+
+.clear-filter-button {
+  border: solid black;
+  padding: 0.2rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgb(224, 209, 209);
+  margin-top: 5px;
+}
+
+.clear-filter-button:hover {
+  background-color: rgb(230, 49, 18);
+  color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* MEDIA QUERIES */
