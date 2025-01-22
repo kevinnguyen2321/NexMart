@@ -110,6 +110,11 @@ export const ProductsListAdmin = () => {
     setIsSortDropdownOpen(false); // Close dropdown after selection
   };
 
+  const handleClearFilter = () => {
+    setProductKeyword('');
+    setSortOption('');
+  };
+
   return (
     <div className="main-admin-products-list-wrapper">
       <div className="products-list-wrapper">
@@ -156,6 +161,12 @@ export const ProductsListAdmin = () => {
                       </button>
                     </div>
                   )}
+                  <button
+                    onClick={handleClearFilter}
+                    className="clear-filter-button"
+                  >
+                    Clear Filter
+                  </button>
                 </div>
               </div>
 
