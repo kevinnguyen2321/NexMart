@@ -1,6 +1,30 @@
+.all-order-main-wrapper {
+  border: solid black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.orders-admin-list-wrapper {
+  width: 80%;
+}
+
 .orders-wrapper {
   margin: 45px auto 0 auto;
   width: 60%;
+}
+
+.sort-order-wrapper {
+  /* box-shadow: rgba(46, 44, 44, 0.418) 0.4px 0.5px 3px; */
+
+  width: 15%;
+}
+
+.sort-order-wrapper p {
+  /* border: solid yellow; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 .order-card {
@@ -98,6 +122,119 @@
 .view-order-btn:hover,
 .cancel-order-btn:hover {
   transform: scale(1.2);
+}
+
+.orders-dropdown {
+  position: absolute;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 1000; /* Ensure it appears above other elements */
+  top: 12%; /* Align below the "Sort By" button */
+  left: 5%;
+  width: 8%;
+}
+
+.orders-dropdown button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.orders-dropdown button:hover {
+  background: #f0f0f0;
+}
+
+.date-range-filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+}
+
+.date-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.date-input-wrapper label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.date-input-wrapper input[type='date'] {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.date-input-wrapper input[type='date']:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.filter-buttons-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.apply-button,
+.reset-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.apply-button {
+  background-color: #007bff;
+}
+
+.apply-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.apply-button:active {
+  background-color: #004085;
+}
+
+.reset-button {
+  background-color: #ffe23f;
+  color: black;
+}
+
+.reset-button:hover {
+  background-color: #fcd000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-orders-text {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #333;
 }
 
 /* MEDIA QUERIES */
