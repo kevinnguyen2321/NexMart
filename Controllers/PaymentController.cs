@@ -26,7 +26,7 @@ public class PaymentController : ControllerBase
             {
                 Amount = paymentRequest.AmountInCents, // e.g., 5000 for $50.00
                 Currency = "usd",
-                // Add any additional options you need (e.g., automatic payment methods)
+                
             };
 
             var service = new PaymentIntentService();

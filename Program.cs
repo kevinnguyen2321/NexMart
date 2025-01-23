@@ -60,7 +60,7 @@ builder.Services.AddNpgsql<NexMartDbContext>(builder.Configuration["NexMartDbCon
 // Load User Secrets in Development TEST Stripe API
 if (builder.Environment.IsDevelopment())
 {
-    builder.Configuration.AddUserSecrets<Program>();  // Add this line to load user secrets in development
+    builder.Configuration.AddUserSecrets<Program>();  
 }
 
 var stripeSecretKey = builder.Configuration["Stripe:SecretKey"];
