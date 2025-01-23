@@ -181,6 +181,9 @@ export const ProductsListAdmin = () => {
             </div>
           </div>
           <h3>Products</h3>
+          {filteredProducts.length === 0 && (
+            <p>No products found for "{productKeyword}"</p>
+          )}
 
           {filteredProducts.map((p) => {
             return (

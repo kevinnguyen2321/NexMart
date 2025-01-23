@@ -1,5 +1,4 @@
 .all-order-main-wrapper {
-  border: solid black;
   display: flex;
   justify-content: space-around;
 }
