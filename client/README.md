@@ -50,20 +50,20 @@ NexMart is a full-stack e-commerce platform that provides a seamless online shop
 
 ### Home Page
 
-![Home Page](../../NexMart/screenshots/home-page.png)
+![Home Page](../../NexMart/screenshots/home-page.PNG)
 
 ### Product Catalog (Admin View)
 
-![Product Catalog](../../NexMart/screenshots/products.png)
+![Product Catalog](../../NexMart/screenshots/products.PNG)
 
 ### Orders (Admin View)
 
-![Orders](../../NexMart/screenshots/orders.png)
+![Orders](../../NexMart/screenshots/orders.PNG)
 
 ### Search for Products
 
-![Product Search](../../NexMart/screenshots/search.png)
+![Product Search](../../NexMart/screenshots/search.PNG)
 
 ### Shopping Cart/Checkout
 
-![Shopping Cart](../../NexMart/screenshots/cart.png)
+![Shopping Cart](../../NexMart/screenshots/cart.PNG)
