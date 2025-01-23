@@ -4,7 +4,11 @@ import { getAllCategories } from '../../managers/categoryManager';
 import { addNewProduct } from '../../managers/productManager';
 import closeIcon from '../../assets/close.png';
 
-export const NewProductForm = ({ isNewProductFormOpen, onClose }) => {
+export const NewProductForm = ({
+  isNewProductFormOpen,
+  onClose,
+  getAllProductsAndSetProducts,
+}) => {
   const [product, setProduct] = useState({});
   const [categories, setCategories] = useState([]);
 
@@ -34,7 +38,10 @@ export const NewProductForm = ({ isNewProductFormOpen, onClose }) => {
     ) {
       alert('Please enter all fields before submitting');
     } else {
-      addNewProduct(product).then(() => onClose());
+      addNewProduct(product).then(() => {
+        onClose();
+        getAllProductsAndSetProducts();
+      });
     }
   };
 

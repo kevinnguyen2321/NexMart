@@ -232,6 +232,7 @@ export const ProductsListAdmin = () => {
           <NewProductForm
             isNewProductFormOpen={isNewProductFormOpen}
             onClose={handleCloseModal}
+            getAllProductsAndSetProducts={getAllProductsAndSetProducts}
           />
         )}
       </div>

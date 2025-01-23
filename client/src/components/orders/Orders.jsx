@@ -60,7 +60,7 @@ export const Orders = ({ loggedInUser }) => {
   const formatDate = (date) => {
     const jsDate = new Date(date);
     // Manually subtract 6 hours for CST (UTC - 6)
-    jsDate.setHours(jsDate.getHours() - 6);
+    jsDate.setHours(jsDate.getHours() + 6);
     const formattedCST = jsDate.toLocaleString('en-US', {
       hour12: false, // Use 24-hour format
       year: 'numeric',
