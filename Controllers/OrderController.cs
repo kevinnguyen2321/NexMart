@@ -87,6 +87,53 @@ public class OrderController : ControllerBase
 
     }
 
+    [HttpGet("canceled-orders")]
+    [Authorize (Roles = "Admin")]
+    public IActionResult GetCanceledOrders() 
+    {
+        var canceledOrders = _dbContext.Orders
+        .Include(o => o.UserProfile)
+        .Include(o => o.OrderProducts)
+        .ThenInclude(op => op.Product)
+        .Where(o => o.isCanceled)
+        .Select(o => new OrderDTO
+        {
+            Id = o.Id,
+            OrderDate = o.OrderDate,
+            UserProfileId = o.UserProfileId,
+            UserProfile = new UserProfileDTO
+            {
+                Id = o.UserProfile.Id,
+                FirstName = o.UserProfile.FirstName,
+                LastName = o.UserProfile.LastName,
+                Address = o.UserProfile.Address,
+            },
+            isCanceled = o.isCanceled,
+            OrderProducts = o.OrderProducts != null ? o.OrderProducts
+                .Select(op => new OrderProductDTO
+                {
+                    Id = op.Id,
+                    OrderId = op.OrderId,
+                    ProductId = op.ProductId,
+                    Product = new ProductDTO
+                    {
+                        Id = op.Product.Id,
+                        Name = op.Product.Name,
+                        Price = op.Product.Price,
+                        StockQuantity = op.Product.StockQuantity
+                    },
+                    Quantity = op.Quantity
+                })
+                .ToList() : null
+        })
+        .ToList();
+
+        return Ok(canceledOrders);
+    }
+
+    
+    
+    
     [HttpGet("{id}")]
     [Authorize]
 
