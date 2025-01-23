@@ -1,16 +1,22 @@
 import { useEffect, useState } from 'react';
-import { cancelOrder, getAllOrders } from '../../managers/orderManager';
+import {
+  cancelOrder,
+  getAllOrders,
+  getCanceledOrders,
+} from '../../managers/orderManager';
 import './Orders.css';
 import { OrderDetails } from './OrderDetails';
 import dropdownArrowIcon from '../../assets/dropdown.png';
 
 export const Orders = ({ loggedInUser }) => {
   const [orders, setOrders] = useState([]);
+  const [canceledOrders, setCanceledOrders] = useState([]);
   const [selectedOrderId, setSelectedOrderId] = useState(null);
   const [filteredOrders, setFilteredOrders] = useState([]);
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
   const [sortOption, setSortOption] = useState('');
   const [dateRange, setDateRange] = useState({ start: '', end: '' });
+  const [isViewingCanceledOrders, setIsViewingCanceledOrders] = useState(false);
 
   const getAllOrdersAndSetOrders = () => {
     getAllOrders().then((data) => setOrders(data));
@@ -21,11 +27,15 @@ export const Orders = ({ loggedInUser }) => {
   }, []);
 
   useEffect(() => {
+    getCanceledOrders().then((data) => setCanceledOrders(data));
+  }, []);
+
+  useEffect(() => {
     setFilteredOrders(orders);
   }, [orders]);
 
   useEffect(() => {
-    let filtered = [...orders];
+    let filtered = isViewingCanceledOrders ? [...canceledOrders] : [...orders];
 
     if (dateRange.start && dateRange.end) {
       const startDateUTC = new Date(`${dateRange.start}T00:00:00Z`);
@@ -49,8 +59,18 @@ export const Orders = ({ loggedInUser }) => {
 
   const formatDate = (date) => {
     const jsDate = new Date(date);
-
-    return jsDate.toLocaleString();
+    // Manually subtract 6 hours for CST (UTC - 6)
+    jsDate.setHours(jsDate.getHours() - 6);
+    const formattedCST = jsDate.toLocaleString('en-US', {
+      hour12: false, // Use 24-hour format
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+    });
+    return formattedCST;
   };
 
   const toggleOrderDetails = (orderId) => {
@@ -68,7 +88,10 @@ export const Orders = ({ loggedInUser }) => {
     );
 
     if (userConfirmed) {
-      cancelOrder(orderId).then(() => getAllOrdersAndSetOrders());
+      cancelOrder(orderId).then(() => {
+        getAllOrdersAndSetOrders();
+        getCanceledOrders().then((data) => setCanceledOrders(data));
+      });
     }
   };
 
@@ -105,6 +128,12 @@ export const Orders = ({ loggedInUser }) => {
     setFilteredOrders(orders);
     setDateRange({ start: '', end: '' });
     setSortOption('');
+    setIsViewingCanceledOrders(false);
+  };
+
+  const handleViewCanceledOrdersClick = () => {
+    setIsViewingCanceledOrders(true);
+    setFilteredOrders(canceledOrders);
   };
 
   return (
@@ -161,6 +190,15 @@ export const Orders = ({ loggedInUser }) => {
       </div>
       <div className="orders-admin-list-wrapper">
         <h2 className="all-orders-header">Orders</h2>
+        <div className="canceled-orders-btn-wrapper">
+          <button
+            onClick={handleViewCanceledOrdersClick}
+            className="view-canceled-order-btn"
+          >
+            View Canceled Orders
+          </button>
+        </div>
+
         <div className="orders-wrapper">
           {filteredOrders.length === 0 && (
             <p className="no-orders-text">No orders found...</p>
@@ -188,12 +226,14 @@ export const Orders = ({ loggedInUser }) => {
                   >
                     {selectedOrderId === o.id ? 'Close' : 'View'}
                   </button>
-                  <button
-                    className="cancel-order-btn"
-                    onClick={() => handleCancelBtnClick(o.id)}
-                  >
-                    Cancel Order
-                  </button>
+                  {!o.isCanceled && (
+                    <button
+                      className="cancel-order-btn"
+                      onClick={() => handleCancelBtnClick(o.id)}
+                    >
+                      Cancel Order
+                    </button>
+                  )}
                 </div>
                 <div
                   className={`order-details-wrapper ${

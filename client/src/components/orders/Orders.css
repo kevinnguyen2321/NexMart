@@ -12,9 +12,27 @@
   width: 60%;
 }
 
-.sort-order-wrapper {
-  /* box-shadow: rgba(46, 44, 44, 0.418) 0.4px 0.5px 3px; */
+.canceled-orders-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 25px;
+}
 
+.view-canceled-order-btn {
+  background-color: rgb(238, 238, 73);
+  color: black;
+  border: solid white;
+  padding: 8px 15px 8px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: transform 0.5s ease-out;
+}
+
+.view-canceled-order-btn:hover {
+  transform: scale(1.2);
+}
+
+.sort-order-wrapper {
   width: 15%;
 }
 
