@@ -7,6 +7,10 @@ import NavBar from './components/navbar/NavBar';
 import ApplicationViews from './components/ApplicationView';
 import { CartProvider } from './components/context/CartProvider';
 import { SearchContextComp } from './components/context/SearchContextComp';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState();
@@ -25,18 +29,20 @@ function App() {
 
   return (
     <>
-      <CartProvider loggedInUser={loggedInUser}>
-        <SearchContextComp>
-          <NavBar
-            loggedInUser={loggedInUser}
-            setLoggedInUser={setLoggedInUser}
-          />
-          <ApplicationViews
-            loggedInUser={loggedInUser}
-            setLoggedInUser={setLoggedInUser}
-          />
-        </SearchContextComp>
-      </CartProvider>
+      <Elements stripe={stripePromise}>
+        <CartProvider loggedInUser={loggedInUser}>
+          <SearchContextComp>
+            <NavBar
+              loggedInUser={loggedInUser}
+              setLoggedInUser={setLoggedInUser}
+            />
+            <ApplicationViews
+              loggedInUser={loggedInUser}
+              setLoggedInUser={setLoggedInUser}
+            />
+          </SearchContextComp>
+        </CartProvider>
+      </Elements>
     </>
   );
 }

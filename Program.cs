@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using NexMart.Data;
+using Stripe; // TEST Stripe API
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,6 +55,17 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // allows our api endpoints to access the database through Entity Framework Core
 builder.Services.AddNpgsql<NexMartDbContext>(builder.Configuration["NexMartDbConnectionString"]);
+
+//TEST Start Stripe API//
+// Load User Secrets in Development TEST Stripe API
+if (builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddUserSecrets<Program>();  // Add this line to load user secrets in development
+}
+
+var stripeSecretKey = builder.Configuration["Stripe:SecretKey"];
+StripeConfiguration.ApiKey = stripeSecretKey;  // Initialize Stripe with the secret key TEST Stripe API
+//TEST End Stripe API
 
 
 var app = builder.Build();

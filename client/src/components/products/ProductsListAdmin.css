@@ -1,5 +1,4 @@
 .main-admin-products-list-wrapper {
-  border: solid blue;
   display: flex;
 }
 
@@ -28,6 +27,22 @@
 .left-side-search input {
   width: 80%;
   margin-top: 8px;
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: .9rem;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.left-side-search input:focus {
+  outline: none;
+  border-color: #007bff; /* A soft blue for focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); /* Light blue shadow on focus */
+}
+.left-side-search input::placeholder {
+  color: #888;
+  font-style: italic;
 }
 .sort-products-admin-wrapper {
   /* margin: 15px auto 0 auto; */
@@ -68,7 +83,6 @@
 .products-wrapper-admin {
   width: 100%;
   margin: 0 auto 0 auto;
-  border: solid green;
 }
 
 .product-list-card {
