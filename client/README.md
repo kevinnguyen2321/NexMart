@@ -4,6 +4,8 @@
 
 NexMart is a full-stack e-commerce platform that provides a seamless online shopping experience. It includes a feature-rich client-side interface, a robust server-side backend, and a secure payment integration using the Stripe API. The platform supports full CRUD (Create, Read, Update, Delete) capabilities and role-based access control for both customers and administrators.
 
+[Watch demo here](https://www.loom.com/share/a72287f3887f40599dc8291132810efc?sid=6229fbaa-b807-49ed-ba1f-bc4bbda5bf6f)
+
 ## Key Features
 
 ### For Customers:
